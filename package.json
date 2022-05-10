@@ -1,0 +1,16 @@
+{
+  "name": "ulibs",
+  "version": "1.0.0",
+  "description": "Trang web mua bán sách trực tuyến ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Shopify",
+    "Book",
+    "Shop"
+  ],
+  "author": "Nguyen Trung Hieu",
+  "license": "ISC"
+}
