@@ -12,5 +12,8 @@
     "Shop"
   ],
   "author": "Nguyen Trung Hieu",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mongoose": "^6.3.3"
+  }
 }
