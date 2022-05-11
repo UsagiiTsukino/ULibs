@@ -26,6 +26,9 @@
 .border-solid-1{
     border: 1px solid rgb(253, 245, 245) !important;
 }
+.d-inline-block {
+    display: inline-block !important;
+}
 .block{
     padding: 0px 8px 12px 16px;
     height: auto;
@@ -34,9 +37,20 @@
 .color-text-secondary{
     color: #808089;
 }
+.icon-logo{
+    width: 35px;
+    height: 35px;
+    margin-right: 12px;
+}
+
+.icon-logo-xl{
+    width: 110px;
+    height: 50px;
+}
 a{
     text-decoration: none;
 }
+
 /* Main */
 #app{
    
@@ -226,7 +240,22 @@ li{
     
 }
 .small-text{
+    display: block;
     margin-bottom: 8px;
+    color: rgb(128, 128, 137);
+    font-size: 12px;
 }
-
+.small-text.apply--hover:hover{
+    font-weight: bold;
+    font-style: italic;
+}
+.rating i,
+.rating .small-text{
+    margin-right: 2px;
+    line-height: 1.4;
+}
+.sold-product-count > p{
+    border-left: 1px solid rgb(128, 128, 137);
+    padding-left: 4px;
+}
 
