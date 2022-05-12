@@ -1,0 +1,30 @@
+<div class="book-posting">
+    <div class="text-center mt-4 mb-4">
+        <h3>Bạn muốn đăng những cuốn sách mình cần bán ? </h3>
+        <h5>Hãy điền thông tin xuống dưới đây chúng tôi sẽ giúp bạn bán những cuốn sách đó cho những người cần chúng.</h5>
+    </div>
+
+    <form method="POST" action="/books/store">
+        <div class="form-floating mt-3 mb-3">
+            <input type="text" class="form-control" id="bookName" name="bookName" placeholder=" ">
+            <label for="bookName">Tên sách</label>
+        </div>
+        <div class="form-floating mt-3 mb-3">
+            <input type="text" class="form-control" id="description" name="description" placeholder=" ">
+            <label for="description">Mô tả</label>
+        </div>
+        <div class="form-floating mt-3 mb-3">
+            <input type="text" class="form-control" id="image" name="image" placeholder=" ">
+            <label for="image">Link hình ảnh</label>
+        </div>
+        <div class="form-floating mt-3 mb-3">
+            <input type="text" class="form-control" id="authorName" name="authorName" placeholder=" ">
+            <label for="authorName">Tên tác giả</label>
+        </div>
+        <div class="form-floating mt-3 mb-3">
+            <input type="text" class="form-control" id="price" name="price" placeholder=" ">
+            <label for="price">Giá bán</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm thông tin sách</button>
+    </form>
+</div>

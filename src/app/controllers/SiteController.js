@@ -5,9 +5,10 @@ class SiteController {
     // [GET] /
     index(req, res, next) {
         Book.find({})
-            .then((err, Books) => {  
-                Books = mutipleMongooseToObject(Books);
-                Books.map((Book) => console.log(Book.name))
+            .then((Books) => {  
+                res.render('home',{
+                    Books: mutipleMongooseToObject(Books),
+                })
             })
             .catch(next);
     }
