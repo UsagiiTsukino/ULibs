@@ -1,0 +1,39 @@
+<div class="mapper">
+    <a href="/" class="mapper-item">
+        <span>Trang chủ</span>
+     </a>    
+        <i class="fa-solid fa-angle-right"></i>
+        <span>{{book.bookName}}</span>
+   
+</div>
+<div class="container-fluid product-show-details">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{{book.image}}" alt=""  width="400px" height="400px">
+        </div>
+        <div class="col-lg-8">
+            
+            <div class="author-name">
+                <p class="title">Tác giả : {{book.authorName}}</p>
+            </div>
+            <div class="product-name">
+                <p class="title">{{book.bookName}}</p>  
+            </div>
+            <div class="product-review">
+                <div class="rating">
+                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                </div>
+                <a href="#" class="number">(Xem 891 lượt đánh giá)</a>
+                <div class="separator"></div>
+                <div class="product-sold">Đã bán 1000 +</div>
+            </div>
+            
+            {{!-- <h3>Giá chỉ : {{book.price}}</h3>
+            <p>{{book.description}}</p>   --}}
+        </div>
+    </div>
+</div>

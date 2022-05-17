@@ -52,9 +52,8 @@ a{
 }
 
 /* Main */
-#app{
-   
-    background-color: #f5f5fa;
+.app{
+    background-color: rgb(245,245,250); 
 }
 button, input {
     overflow: visible;
@@ -66,7 +65,11 @@ ul{
 li{
     display: inline-block;
 }
-
+.content {
+    background-color: #fff;
+    padding-left: 0;
+    padding-right: 0;
+}
 .img-logo {
     width: 150px;
     height: 150px;
@@ -173,12 +176,19 @@ li{
     font-size: 14px;
     display: flex;
     align-items: center;
+    width: 100% !important;
+    background-color: rgb(245,245,250);
 }
+
 .mapper > a{
     color: #38383d;
     font-size: 14px;
     font-weight: 300;
     line-height: 20px;
+    
+}
+.mapper > * {
+    padding-left: 12px;
 }
 .slide{
     

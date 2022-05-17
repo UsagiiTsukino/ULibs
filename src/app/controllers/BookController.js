@@ -3,16 +3,16 @@ const { mongooseToObject } = require('../../util/mongoose');
 const { param } = require("express/lib/request");
 
 
-class CourseController {
+class BookController {
   
     // [GET] /search
     show(req, res, next) {
         books.findOne({
             slug : req.params.slug
         })
-        .then(course => {
+        .then(book => {
             res.render('books/show', {
-                course : mongooseToObject(course)
+                book : mongooseToObject(book)
             })
         })
         .catch(next)
@@ -25,8 +25,8 @@ class CourseController {
      // [POST] /books/create
      store(req, res, next){
          const formData = req.body
-         const course = new books(formData);
-         course.save()
+         const book = new books(formData);
+         book.save()
                 .then(() => res.redirect(`/`))
          
     }
@@ -34,8 +34,8 @@ class CourseController {
     // [GET] /books/:id/create
     edit(req, res, next){
         books.findById(req.params.id)
-                .then(course =>  res.render('books/edit',{
-                    course : mongooseToObject(course)
+                .then(book =>  res.render('books/edit',{
+                    book : mongooseToObject(book)
                 }))
                 .catch(next)
             }
@@ -57,4 +57,4 @@ class CourseController {
     }
 }
    
-module.exports = new CourseController();
+module.exports = new BookController();

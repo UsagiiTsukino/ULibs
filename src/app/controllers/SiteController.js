@@ -5,9 +5,9 @@ class SiteController {
     // [GET] /
     index(req, res, next) {
         Book.find({})
-            .then((Books) => {  
+            .then((books) => {  
                 res.render('home',{
-                    Books: mutipleMongooseToObject(Books),
+                    books: mutipleMongooseToObject(books),
                 })
             })
             .catch(next);

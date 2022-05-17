@@ -1,0 +1,54 @@
+.product-details {
+    margin-top: 15rem;
+}
+.product-show-details{
+    padding-top: 8px;
+    padding-bottom: 16px;
+}
+.author-name {
+    margin-top: 8px;
+}
+.author-name p{
+    line-height: 1.4;
+    display: block;
+    color: rgb(36, 36, 36);
+    font-size: 13px;
+    font-weight: 500;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.title {
+    margin: 0px 0px 4px;
+    color: rgb(36, 36, 36);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 32px;
+    word-break: break-word;
+}
+.product-review {
+    display: flex;
+    align-items: center;
+}
+.rating {
+    font-size: 12px ;
+}
+.number {
+    display: block;
+    cursor: pointer;
+    margin-left: 8px;
+    color: rgb(120, 120, 120);
+    font-size: 15px;
+    line-height: 24px;
+}
+.separator {
+    width: 1px;
+    height: 12px;
+    background-color: rgb(199, 199, 199);
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.product-sold {
+    font-size: 15px;
+    line-height: 24px;
+    color: rgb(120, 120, 120);
+}
