@@ -52,3 +52,39 @@
     line-height: 24px;
     color: rgb(120, 120, 120);
 }
+.product-price {
+    color: rgb(255, 66, 78);
+    padding-top: 12px;
+    display: flex;
+    align-items: flex-end;
+    color: rgb(56, 56, 61);
+}
+#pseudo-price{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+#price{
+    color: rgb(128, 128, 137);
+    text-decoration: line-through;
+    font-size: 14px;
+    line-height: 20px;
+}
+#current-price{
+    font-size: 32px;
+    line-height: 40px;
+    margin-right: 8px;
+    font-weight: 500;
+    color: rgb(255, 66, 78);
+}
+#discount{
+    font-weight: 400;
+    margin-left: 8px;
+    border: 1px solid rgb(255, 66, 78);
+    border-radius: 2px;
+    background-color: rgb(255, 240, 241);
+    color: rgb(255, 66, 78);
+    line-height: 18px;
+    font-size: 14px;
+    padding: 0px 4px;
+}

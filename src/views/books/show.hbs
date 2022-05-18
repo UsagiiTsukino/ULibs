@@ -31,9 +31,31 @@
                 <div class="separator"></div>
                 <div class="product-sold">Đã bán 1000 +</div>
             </div>
-            
+            <div class="product-price">
+                <div id="pseudo-price">{{book.price}}</div>
+                <div id="current-price"></div>
+                <div id="price"></div>
+                <div id="discount"></div>
+            </div>
+
             {{!-- <h3>Giá chỉ : {{book.price}}</h3>
             <p>{{book.description}}</p>   --}}
         </div>
     </div>
 </div>
+<script>
+    const currentPrice = document.getElementById('current-price')
+    const beforePrice = document.getElementById('pseudo-price')
+    const price = document.getElementById('price')
+    const nBeforeNumber = parseInt(beforePrice.innerText)
+    const saleOff = 30;
+
+    function formatPrice(price){
+        return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    }
+
+    currentPrice.innerText = formatPrice(Math.round(nBeforeNumber - (saleOff / 100)*nBeforeNumber ).toString()) + ' đ'
+    price.innerText = formatPrice(beforePrice.innerText) + ' đ';
+    document.getElementById('discount').innerText = saleOff + '%'
+
+</script>
