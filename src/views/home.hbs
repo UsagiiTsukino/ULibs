@@ -121,12 +121,12 @@
 										</li>
 										<li>
 											<span>Cột sản phẩm</span>
-											<span class="num_sorting_text">6</span>
+											<span class="num_sorting_text">4</span>
 											<i class="fa fa-angle-down"></i>
 											<ul class="sorting_num">
+												<li class="num_sorting_btn"><span>4</span></li>
 												<li class="num_sorting_btn"><span>6</span></li>
-												<li class="num_sorting_btn"><span>12</span></li>
-												<li class="num_sorting_btn"><span>24</span></li>
+												<li class="num_sorting_btn"><span>8</span></li>
 											</ul>
 										</li>
 									</ul>
@@ -153,7 +153,7 @@
                                                         <p class="small-text">Đã bán 1000+</p>
                                                     </div>
                                             </div>
-                                            <div class="float-end">    
+                                            <div class="float-end price-js">    
                                                 <p style="color: red;">{{this.price}}</p>
                                             </div>
                                         </div>
@@ -166,3 +166,13 @@
                     </div>
                 </div>
             </div>
+    <script>
+        const priceList = document.querySelectorAll('.price-js > p')
+        function formatPrice(price){
+            return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        }
+        priceList.forEach((item) => {
+            let price = item.innerText
+            item.innerText = formatPrice(price) + ' đ' 
+        })
+    </script>

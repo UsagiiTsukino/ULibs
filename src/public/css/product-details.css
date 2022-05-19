@@ -1,3 +1,6 @@
+.col-left{
+    position: relative;
+}
 .product-details {
     margin-top: 15rem;
 }
@@ -87,4 +90,104 @@
     line-height: 18px;
     font-size: 14px;
     padding: 0px 4px;
+}
+.icon{
+    /* margin-top: 16px; */
+}
+.item{
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+.freeship-banner{
+    height:20px;
+    font-weight: 400;
+    margin-left: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 2px;
+    background-color: rgb(255, 240, 241);
+    color: rgb(2, 2, 2);
+    line-height: 18px;
+    font-size: 14px;
+    padding: 0px 4px;
+}
+.quantity {
+    width: 100%;
+    height: 40px;
+    margin-top: 23px;
+}
+.quantity_selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 132px;
+    height: 100%;
+    border: solid 1px #e5e5e5;
+    margin-left: 29px;
+}
+.quantity_selector span {
+    font-weight: 500;
+    color: #232530;
+}
+.plus, .minus {
+    padding-left: 14px;
+    padding-right: 14px;
+    cursor: pointer;
+}
+.add_to_cart_button {
+    width: 160px;
+    margin-left: 19px;
+    font-size: 12px !important;
+}
+
+.red_button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    background: #fe4c50;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.red_button a {
+    display: block;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+    width: 100%;
+}
+.product_favorite
+{   
+    
+	width: 50px;
+	height: 50px;
+    /* right: 104px;
+    top: 15px; */
+	margin-left: 22px;
+	border: solid 1px #e5e5e5;
+    background-color: rgb(255, 240, 241);
+	border-radius: 20rem;
+	cursor: pointer;
+}
+.product_favorite:hover::after
+{
+	color: #fe4c50;
+}
+.product_favorite::after
+{
+	font-family: 'FontAwesome';
+	content:'\f08a';
+	font-size: 22px;
+}
+.product_favorite.active::after
+{
+	content:'\f004';
+	color: #fe4c50;
 }

@@ -8,7 +8,7 @@
 </div>
 <div class="container-fluid product-show-details">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-left">
             <img src="{{book.image}}" alt=""  width="400px" height="400px">
         </div>
         <div class="col-lg-8">
@@ -36,6 +36,24 @@
                 <div id="current-price"></div>
                 <div id="price"></div>
                 <div id="discount"></div>
+            </div>
+            <div class="item">
+                <img class="icon" src="https://salt.tikicdn.com/ts/upload/2e/da/c9/4b9c0150392c753ccb65b2595500e9d6.png" width="130" height="24" alt="">
+                <div class="separator"></div>
+                <div class="freeship-banner">
+                    <i class="fa-solid fa-truck"></i>
+                    Miễn phí vận chuyển
+                </div>
+            </div>
+            <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+						<span>Số lượng :</span>
+						<div class="quantity_selector">
+							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+							<span id="quantity_value">1</span>
+							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+						</div>
+						<div class="red_button add_to_cart_button"><a href="#">Thêm vào giỏ hàng</a></div>
+                        <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
             </div>
 
             {{!-- <h3>Giá chỉ : {{book.price}}</h3>

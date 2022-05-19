@@ -1,7 +1,9 @@
 jQuery(document).ready(($) =>{
 
     initPriceSlider();
-	initIsotopeFiltering();
+	initQuantity();
+	initStarRating();
+	initFavorite();
     function initPriceSlider()
     {
 		"use strict";
@@ -20,77 +22,69 @@ jQuery(document).ready(($) =>{
 			
 		$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
     }
-	// function initIsotopeFiltering()
-    // {
-    // 	var sortTypes = $('.type_sorting_btn');
-    // 	var sortNums = $('.num_sorting_btn');
-    // 	var sortTypesSelected = $('.sorting_type .item_sorting_btn is-checked span');
-    // 	var filterButton = $('.filter_button');
+	function initQuantity()
+	{
+		if($('.plus').length && $('.minus').length)
+		{
+			var plus = $('.plus');
+			var minus = $('.minus');
+			var value = $('#quantity_value');
 
-    // 	if($('.product-grid').length)
-    // 	{
-    // 		$('.product-grid').isotope({
-    // 			itemSelector: '.product-item',
-	//             getSortData: {
-	//             	price: function(itemElement)
-	//             	{
-	//             		var priceEle = $(itemElement).find('.product_price').text().replace( '$', '' );
-	//             		return parseFloat(priceEle);
-	//             	},
-	//             	name: '.product_name'
-	//             },
-	//             animationOptions: {
-	//                 duration: 750,
-	//                 easing: 'linear',
-	//                 queue: false
-	//             }
-	//         });
+			plus.on('click', function()
+			{
+				var x = parseInt(value.text());
+				value.text(x + 1);
+			});
 
-    // 		// Short based on the value from the sorting_type dropdown
-	//         sortTypes.each(function()
-	//         {
-	//         	$(this).on('click', function()
-	//         	{
-	//         		$('.type_sorting_text').text($(this).text());
-	//         		var option = $(this).attr('data-isotope-option');
-	//         		option = JSON.parse( option );
-    // 				$('.product-grid').isotope( option );
-	//         	});
-	//         });
+			minus.on('click', function()
+			{
+				var x = parseInt(value.text());
+				if(x > 1)
+				{
+					value.text(x - 1);
+				}
+			});
+		}
+	}
+	function initStarRating()
+	{
+		if($('.user_star_rating li').length)
+		{
+			var stars = $('.user_star_rating li');
 
-	//         // Show only a selected number of items
-	//         sortNums.each(function()
-	//         {
-	//         	$(this).on('click', function()
-	//         	{
-	//         		var numSortingText = $(this).text();
-	// 				var numFilter = ':nth-child(-n+' + numSortingText + ')';
-	//         		$('.num_sorting_text').text($(this).text());
-    // 				$('.product-grid').isotope({filter: numFilter });
-	//         	});
-	//         });	
+			stars.each(function()
+			{
+				var star = $(this);
 
-	//         // Filter based on the price range slider
-	//         filterButton.on('click', function()
-	//         {
-	//         	$('.product-grid').isotope({
-	// 	            filter: function()
-	// 	            {
-	// 	            	var priceRange = $('#amount').val();
-	// 		        	var priceMin = parseFloat(priceRange.split('-')[0].replace('$', ''));
-	// 		        	var priceMax = parseFloat(priceRange.split('-')[1].replace('$', ''));
-	// 		        	var itemPrice = $(this).find('.product_price').clone().children().remove().end().text().replace( '$', '' );
+				star.on('click', function()
+				{
+					var i = star.index();
 
-	// 		        	return (itemPrice > priceMin) && (itemPrice < priceMax);
-	// 	            },
-	// 	            animationOptions: {
-	// 	                duration: 750,
-	// 	                easing: 'linear',
-	// 	                queue: false
-	// 	            }
-	// 	        });
-	//         });
-    // 	}
-    // }
+					stars.find('i').each(function()
+					{
+						$(this).removeClass('fa-star');
+						$(this).addClass('fa-star-o');
+					});
+					for(var x = 0; x <= i; x++)
+					{
+						$(stars[x]).find('i').removeClass('fa-star-o');
+						$(stars[x]).find('i').addClass('fa-star');
+					};
+				});
+			});
+		}
+	}
+	function initFavorite()
+	{
+		if($('.product_favorite').length)
+		{
+			var fav = $('.product_favorite');
+
+			fav.on('click', function()
+			{
+				fav.toggleClass('active');
+			});
+		}
+	}
 
 })
