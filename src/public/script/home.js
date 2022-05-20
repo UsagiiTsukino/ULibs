@@ -4,6 +4,10 @@ jQuery(document).ready(($) =>{
 	initQuantity();
 	initStarRating();
 	initFavorite();
+
+	function formatPrice(price){
+		return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+	}
     function initPriceSlider()
     {
 		"use strict";
@@ -12,15 +16,16 @@ jQuery(document).ready(($) =>{
 		{
 			range: true,
 			min: 0,
-			max: 1000,
-			values: [ 0, 580 ],
+			max: 50,
+			values: [ 0, 0 ],
+			
 			slide: function( event, ui )
 			{
-				$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+				$( "#amount" ).val( formatPrice((ui.values[ 0 ] * 100000).toString()) + " đ - " + formatPrice((ui.values[ 1 ] * 100000).toString()) +" đ");
 			}
 		});
 			
-		$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+		$( "#amount" ).val(  $( "#slider-range" ).slider( "values", 0 ) + " đ"+" - " + $( "#slider-range" ).slider( "values", 1 ) + " đ");
     }
 	function initQuantity()
 	{
@@ -81,9 +86,15 @@ jQuery(document).ready(($) =>{
 			var fav = $('.product_favorite');
 
 			fav.on('click', function()
-			{
+			{	
+				// fav.css('transform', 'scale(' +1.2+')');
 				fav.toggleClass('active');
+				if (fav.hasClass('active')){
+					$('.favorite-js-text').text("Đã thích")
+				}
+				else $('.favorite-js-text').text("Thích")				
 			});
+
 		}
 	}
 

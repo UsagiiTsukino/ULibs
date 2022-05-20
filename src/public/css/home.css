@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 *::-webkit-scrollbar {
     width: 16px;
@@ -268,7 +269,9 @@ li{
     border-left: 1px solid rgb(128, 128, 137);
     padding-left: 4px;
 }
-
+.book-recommended.title {
+    font-size: 16px;
+}
 /* Book posting form */
 
 .book-posting{
