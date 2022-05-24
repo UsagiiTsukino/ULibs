@@ -37,7 +37,7 @@
                       </div>
                 </div>
                 <div class="row main">
-                    <div class="col-3 col-left border-solid-1">
+                    <div class="col-xl-3 col-left border-solid-1 ">
                         <div class="block border-solid-1">
                             <p class="title">Danh mục sản phẩm</p>
                             <div class="list colapsed">
@@ -133,7 +133,7 @@
                             </div>
                             <div class="row product-show">
                                 {{#each books}}
-                                <div class="col-sm-3">
+                                <div class="col-xxl-3 col-md-6 col-xs-12 product-item">
                                     <div class="card card--item">
                                         <a href="/books/{{this.slug}}">
                                             <img class="card-img-top" src="{{this.image}}" alt="{{this.bookName}}">
@@ -154,9 +154,11 @@
                                                     </div>
                                             </div>
                                             <div class="float-end price-js">    
-                                                <p style="color: red;">{{this.price}}</p>
+                                                <p style="color: red;" class="product-price">{{this.price}}</p>
+                                                <div class="current-price"></div>
                                             </div>
                                         </div>
+                                            <div class="discount"></div>
                                     </div>
                                 </div>
                                 {{/each}}
@@ -167,12 +169,21 @@
                 </div>
             </div>
     <script>
-        const priceList = document.querySelectorAll('.price-js > p')
+        const priceList = document.querySelectorAll('.product-price')
+        const currentPriceList = document.querySelectorAll('.current-price')
+        const saleOff = 30;
+
+
         function formatPrice(price){
             return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
         }
+
         priceList.forEach((item) => {
-            let price = item.innerText
-            item.innerText = formatPrice(price) + ' đ' 
+            let price = parseInt(item.innerText) - (parseInt(item.innerText) * (saleOff/100))
+            item.innerText = formatPrice(price.toString()) + ' đ' 
+        })
+
+        document.querySelectorAll('.discount').forEach((item) => {
+            item.innerText = saleOff + '%';
         })
     </script>

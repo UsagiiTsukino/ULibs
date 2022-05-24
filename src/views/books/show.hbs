@@ -8,7 +8,7 @@
 </div>
 <div class="container-fluid product-show-details">
     <div class="row">
-        <div class="col-lg-4 col-left">
+        <div class="col-lg-4 col-sm-12 col-xs-12 col-left">
             <div class="product-img">
                 <img src="{{book.image}}" alt=""  width="400px" height="400px">
             </div>
@@ -26,7 +26,7 @@
                 <div class="favorite-js-text">Thích</div>
             </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-sm-12 col-xs-12">
             
             <div class="author-name">
                 <p class="title">Tác giả : {{book.authorName}}</p>
@@ -66,9 +66,18 @@
 							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
 							<span id="quantity_value">1</span>
 							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
-						</div>
-						<div class="red_button add_to_cart_button"><a href="#">Thêm vào giỏ hàng</a></div>
-                        
+						</div>      
+            </div>
+            <div class="d-flex">
+                <div class="red_button add_to_cart_button">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <a href="#">Thêm vào giỏ hàng</a>
+                    </div>
+                <div class="red_button buy_now_button">
+                    <i class="fa-solid fa-store"></i>
+                    <a href="#">Mua ngay</a>
+                    </div>
+
             </div>
 
             {{!-- <h3>Giá chỉ : {{book.price}}</h3>

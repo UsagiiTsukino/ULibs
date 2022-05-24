@@ -80,7 +80,7 @@
     font-weight: 500;
     color: rgb(255, 66, 78);
 }
-#discount{
+#discount, .discount{
     font-weight: 400;
     margin-left: 8px;
     border: 1px solid rgb(255, 66, 78);
@@ -90,6 +90,11 @@
     line-height: 18px;
     font-size: 14px;
     padding: 0px 4px;
+}
+.discount{
+   position: absolute;
+   top: 1.5%;
+   right: 5%; 
 }
 .icon{
     
@@ -139,17 +144,35 @@
     padding-right: 14px;
     cursor: pointer;
 }
-.add_to_cart_button {
-    width: 160px;
-    margin-left: 19px;
+.add_to_cart_button,
+.buy_now_button {
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
     font-size: 12px !important;
 }
-
+.add_to_cart_button{
+    font-weight: 400;
+    border: 1px solid rgb(255, 66, 78) !important;
+    border-radius: 2px !important;
+    background-color: rgb(255, 240, 241) !important;
+    line-height: 18px;
+    font-size: 14px;
+    padding: 0px 4px;
+}
+.add_to_cart_button a,
+.add_to_cart_button i {
+    color: rgb(255, 66, 78) !important;
+}
+.buy_now_button{
+    margin-left: 24px;
+}
+.buy_now_button i,
+.buy_now_button a {
+    color: #FFFFFF;
+}
 .red_button {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: auto;
     height: auto;
     background: #fe4c50;
@@ -158,14 +181,16 @@
     transition: all 0.3s ease;
 }
 .red_button a {
-    display: block;
-    color: #FFFFFF;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 500;
     text-align: center;
     line-height: 40px;
     width: 100%;
+    margin-left: 12px;
+}
+.red_button i {
+    font-size: 24px;
 }
 .product_favorite
 {   
@@ -191,6 +216,7 @@
 .product-action{
     display: flex;
     margin-top: 24px;
+    margin-left: 8px;
     -webkit-box-align: center;
     align-items: center;
 }

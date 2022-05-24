@@ -237,6 +237,7 @@ li{
 .card--item {
     border: none !important;
     transition-duration: 0.5s;
+    position: relative;
 }
 .card--item:hover{
     box-shadow: rgb(0 0 0 / 10%) 0px 0px 20px;
