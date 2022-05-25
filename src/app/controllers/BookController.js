@@ -1,14 +1,28 @@
+const mongoose = require('mongoose');
 const books = require("../models/Book");
 const { mongooseToObject } = require('../../util/mongoose');
 const { param } = require("express/lib/request");
-
-
+const slug = require('mongoose-slug-generator');
+mongoose.plugin(slug)
 class BookController {
   
     // [GET] /search
     show(req, res, next) {
         books.findOne({
             slug : req.params.slug
+        })
+        .then(book => {
+            res.render('books/show', {
+                book : mongooseToObject(book)
+            })
+        })
+        .catch(next)
+    }
+
+    // [GET] /books/search
+    search(req, res, next) {
+        books.findOne({
+            bookName : req.query.tag
         })
         .then(book => {
             res.render('books/show', {

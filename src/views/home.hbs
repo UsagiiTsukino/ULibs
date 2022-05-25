@@ -135,11 +135,11 @@
                                 {{#each books}}
                                 <div class="col-xxl-3 col-md-6 col-xs-12 product-item">
                                     <div class="card card--item">
-                                        <a href="/books/{{this.slug}}">
+                                        <a href="/books/{{this.slug}}/show">
                                             <img class="card-img-top" src="{{this.image}}" alt="{{this.bookName}}">
                                         </a>
                                         <div class="card-body">
-                                            <a href="/books/{{this.slug}}" style="text-decoration: none;">
+                                            <a href="/books/{{this.slug}}/show" style="text-decoration: none;">
                                                 <h6 class="card-title" style="font-size: 0.8rem;">{{this.bookName}}</h6>
                                             </a>
                                             <div class="d-flex justify-content-end">
@@ -187,3 +187,4 @@
             item.innerText = saleOff + '%';
         })
     </script>
+    

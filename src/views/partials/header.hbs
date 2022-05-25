@@ -4,12 +4,14 @@
                 </a>
                 
                 <div class="middle-header">
+                  <form action="/books/search" method="GET">
                     <div class="search-form">
-                        <input class="search-input" type="text" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn ..." placeholder="Search" aria-label="Search">
+                        <input id="search" class="search-input" type="text" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn ..." placeholder="Search" aria-label="Search" name="tag">
                         <button class="btn-search" type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             Tìm Kiếm
                         </button>
+                      </form>  
                       </div>
                     <div class="book-recommended">
                         <span class="book-recommended title">Phổ biến : </span>

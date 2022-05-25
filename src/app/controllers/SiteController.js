@@ -12,6 +12,9 @@ class SiteController {
             })
             .catch(next);
     }
+    search(req, res, next) {
+        
+    }
     // getBookList(){
     //     return BookList;
     // }

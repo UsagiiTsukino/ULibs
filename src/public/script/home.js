@@ -1,5 +1,10 @@
-jQuery(document).ready(($) =>{
+// const Book = require('../models/Book');
+// const { mongooseToObject } = require('../../util/mongoose');
+// const { param } = require("express/lib/request");
 
+jQuery(document).ready(($) =>{
+	
+	
     initPriceSlider();
 	initQuantity();
 	initStarRating();
@@ -97,6 +102,19 @@ jQuery(document).ready(($) =>{
 
 		}
 	}
+	$(function (){
+		const productsList = [];
+		$('.card-title').each(function (){
+			productsList.push($(this).text())
+			// console.log($(this));
+		});
+		$( "#search" ).autocomplete({
+			source: productsList
+		  });
+		});
+	
+		  
+	
 	function initIsotopeFiltering()
     {
     	var sortTypes = $('.type_sorting_btn');

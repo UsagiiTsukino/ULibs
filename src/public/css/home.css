@@ -51,7 +51,17 @@
 a{
     text-decoration: none;
 }
-
+#ui-id-1{
+    display: block;
+    z-index: 9999999999999999;
+    width: 960px;
+    padding-left: 0;
+}
+#ui-id-1 > li {
+    width: 100%;
+    /* padding-left: 0; */
+    /* margin-left: 1rem; */
+}
 /* Main */
 .app{
     background-color: rgb(245,245,250); 
