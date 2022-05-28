@@ -3,13 +3,38 @@
 // const { param } = require("express/lib/request");
 
 jQuery(document).ready(($) =>{
-	
-	
+	initPreloader();
     initPriceSlider();
 	initQuantity();
 	initStarRating();
 	initFavorite();
 	initIsotopeFiltering();
+	initToolTip();
+	addToCartAction();
+	initLazyLoading();
+
+	function initLazyLoading() {
+		$('.lazy').Lazy({
+			
+			effect: 'fadeIn',
+			duration : 300,
+			delay: 5000
+		});
+	}
+                
+
+	function initPreloader() {
+		$('.app').css('display', 'none');
+		$('.footer').css('display', 'none');
+		setTimeout(()=>{
+			$(document.body).removeClass('loader');
+			$(document.body).removeAttr('class', false);
+			$('.app').css('display', 'block');
+			$('.footer').css('display', 'block');	
+			initIsotopeFiltering();	
+		}, 1000)
+	}
+
 	function formatPrice(price){
 		return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 	}
@@ -102,19 +127,26 @@ jQuery(document).ready(($) =>{
 
 		}
 	}
+	// Searching Feature
 	$(function (){
-		const productsList = [];
+		var productsList = [];
+		localStorage.setItem('productsName', JSON.stringify(productsList))
 		$('.card-title').each(function (){
 			productsList.push($(this).text())
 			// console.log($(this));
+			localStorage.setItem('name', JSON.stringify(productsList))
 		});
+		var productsList = localStorage.getItem('name')
+		productsList = JSON.parse(productsList)
 		$( "#search" ).autocomplete({
 			source: productsList
 		  });
 		});
 	
-		  
-	
+	// Tooltip
+	function initToolTip(){
+		$('.drawner > item').tooltip()
+	}
 	function initIsotopeFiltering()
     {
     	var sortTypes = $('.type_sorting_btn');
@@ -187,5 +219,11 @@ jQuery(document).ready(($) =>{
 	        });
     	}
     }
+	function addToCartAction(){
+		$('.add_to_cart_button').on('click',  () => {
+			const quantity = parseInt( $('.add-cart > i > span').text()) + 1;
+			$('.add-cart > i > span').text(quantity)
+		})
+	}
 
 })

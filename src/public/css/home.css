@@ -103,11 +103,12 @@ li{
 .book-recommended{
     margin-top: 18px;
 }
-.list-recommended > li {
+.list-recommended > li > a {
     margin-left: 8px;
     padding: 2px;
     opacity: 0.7;
     cursor: pointer;
+    color: #555;
 }
 .list-recommended > li:hover{
     background-color: rgba(156, 119, 51, 0.425);

@@ -3,28 +3,79 @@
         <h3>Bạn muốn đăng những cuốn sách mình cần bán ? </h3>
         <h5>Hãy điền thông tin xuống dưới đây chúng tôi sẽ giúp bạn bán những cuốn sách đó cho những người cần chúng.</h5>
     </div>
+    <div class="row">
+        <div class="col-xxl-6 col-sm-12 col-md-12 form-posting">
+            <form method="POST" action="/books/store">
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="bookName" name="bookName" placeholder=" " required>
+                    <label for="bookName">Tên sách</label>
+                </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="description" name="description" placeholder=" " required>
+                    <label for="description">Mô tả</label>
+                </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="image" name="image" placeholder=" " required>
+                    <label for="image">Link hình ảnh</label>
+                </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="authorName" name="authorName" placeholder=" " required>
+                    <label for="authorName">Tên tác giả</label>
+                </div>
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="catelogy-options">Thể loại sách</label>
+                <select class="form-select" id="catelogy-options" required>
+                    <option selected>Chọn...</option>
+                    <option value="EngBook">Sách Tiếng Anh</option>
+                    <option value="VieBook">Sách Tiếng Việt</option>
+                    <option value="AbilitiesBook">Sách kĩ năng sống </option>
+                    <option value="DetectiveBook">Truyện trinh thám</option>
+                    <option value="ComicBook">Truyện tranh</option>
+                </select>
+                <input type="hidden" id="catelogy" name="catelogy">
+                </div>
+                <div class="form-floating mt-3 mb-3" required>
+                    <input type="text" class="form-control" id="price" name="price" placeholder=" " style="text-decoration: none;">
+                    <label for="price">Giá bán</label>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Thêm thông tin sách
+                    </button>
+            </form>
+                     <button id="check">
+                         <i class="fa-solid fa-circle-check"></i>
+                         Kiểm tra
+                     </button>
 
-    <form method="POST" action="/books/store">
-        <div class="form-floating mt-3 mb-3">
-            <input type="text" class="form-control" id="bookName" name="bookName" placeholder=" ">
-            <label for="bookName">Tên sách</label>
+      
         </div>
-        <div class="form-floating mt-3 mb-3">
-            <input type="text" class="form-control" id="description" name="description" placeholder=" ">
-            <label for="description">Mô tả</label>
+        <div class="col-xxl-6 col-sm-12 col-md-12">
+            <div class="card card--item card-preview" style="display: none">
+                <a href="#">
+                    <img class="card-img-top" src="" alt="">
+                </a>
+                <div class="card-body">
+                    <a href="#" style="text-decoration: none;">
+                        <h6 class="card-title" style="font-size: 0.8rem;"></h6>
+                    </a>
+                    <div class="d-flex justify-content-end">
+                            <div class="rating">
+                                <span class="small-text" style="color: black;">
+                                    5/5
+                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                </span>
+                            </div>
+                            <div class="sold-product-count">
+                                <p class="small-text">Đã bán 1000+</p>
+                            </div>
+                    </div>
+                    <div class="float-end price-js">    
+                        <p style="color: red;" class="product-price"></p>
+                        <div class="current-price"></div>
+                    </div>
+                </div>    
+            </div>
         </div>
-        <div class="form-floating mt-3 mb-3">
-            <input type="text" class="form-control" id="image" name="image" placeholder=" ">
-            <label for="image">Link hình ảnh</label>
-        </div>
-        <div class="form-floating mt-3 mb-3">
-            <input type="text" class="form-control" id="authorName" name="authorName" placeholder=" ">
-            <label for="authorName">Tên tác giả</label>
-        </div>
-        <div class="form-floating mt-3 mb-3">
-            <input type="text" class="form-control" id="price" name="price" placeholder=" " style="text-decoration: none;">
-            <label for="price">Giá bán</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Thêm thông tin sách</button>
-    </form>
+    </div>
 </div>

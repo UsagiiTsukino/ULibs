@@ -10,6 +10,7 @@ const Book = new Schema ({
     slug: { type: String, slug: 'bookName', unique : true },
     authorName : {type : String},
     raiing: {type: Number},
+    catelogy: {type : String},
     deletedAt : {type : Date}
 },{
     timestamps : true,

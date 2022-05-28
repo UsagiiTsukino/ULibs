@@ -1,0 +1,26 @@
+.card-preview{
+    box-shadow: rgb(0 0 0 / 30%) 0px 0px 20px;
+}
+.form-posting {
+}
+.form-floating, .input-group{
+    margin-left: 24px;
+    width: 90%;
+}
+.form-posting > form > button[type="submit"]{
+    float: right;
+    margin-right: 7%;
+    padding: 8px 16px;
+    border-radius: 20rem;
+    display: none;
+}
+#check{
+    padding: 8px 16px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 20rem;
+    margin-left: 24px;
+}
+#check > i {
+    margin-right: 8px;
+}
