@@ -302,6 +302,7 @@ th {
 }
 .product-infomation{
     margin-top: 20px;
+    visibility: hidden;
 }
 .product-infomation > div{
     margin-left: 36px;

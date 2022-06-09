@@ -219,3 +219,91 @@ input.with-icon-right{
     background-color: rgb(11, 116, 229);
     cursor: pointer;
 }
+.cube{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+.list-item{
+    border-top: 1px solid rgb(248, 248, 248);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 19px 0px;
+}
+.list-item:first-child {
+    border: none;
+}
+.info{
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+.detail{
+    display: flex;
+    flex-direction: column;
+}
+.list-item span {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px 0px 0px 6px;
+    color: rgb(56, 56, 61);
+}
+.list-item .status {
+    color: rgb(27, 168, 255);
+    margin-right: 20px;
+    flex: 1 1 0%;
+    -webkit-box-pack: justify;
+    justify-content: flex-end;
+    display: flex;
+}
+.list-item button {
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 12px;
+
+}
+.list-item button.active {
+    background-color: rgb(255, 255, 255);
+}
+.info-right > .block{
+    padding: 0px 8px 0px 8px;
+}
+.file-chooser{
+    display: none;
+    position: absolute;
+    top: 105px;
+    left: 80px;
+    width: 250px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 0px 4px;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+}
+.file-chooser > ul {
+    display: block;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.file-chooser li {
+    display: flex;
+    width: 100%;
+    padding: 10px 20px;
+    align-items: center;
+}
+.file-chooser li p{
+    margin-left: 16px;
+    margin-bottom: 0;
+}
+.file-chooser i {
+    color: rgb(108, 108, 108);
+}
+.file-chooser > ul :hover{
+    background-color: rgb(240, 248, 255);
+}

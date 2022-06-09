@@ -37,135 +37,152 @@
                       </div>
                 </div>
                 <div class="row main">
-                    <div class="col-xl-3 col-left border-solid-1 ">
-                        <div class="block border-solid-1">
-                            <p class="title">Danh mục sản phẩm</p>
-                            <div class="list colapsed">
-                                <a href="/english_books" class="item item--category">Sách Tiếng Anh</a>
-                                <a href="/vietnam_books" class="item item--category">Sách Tiếng Việt</a>
-                                <a href="/abilities_books" class="item item--category">Sách Kĩ Năng Sống</a>
-                                <a href="/detective_books" class="item item--category">Truyện Trinh Thám</a>
-                                <a href="/comic_books" class="item item--category">Truyện Tranh</a>
-                            </div>
-                        </div>
-                        <div class=" block border-solid-1 sidebar_section">
-                                <p class="title">
-                                    LỌC THEO GIÁ TRỊ SẢN PHẨM
-                                </p>
-                                <p>
-                                    <input type="text" id="amount" readonly style="border:0;">
-                                </p>
-                                <div id="slider-range"></div>
-                                <div class="filter_button"><span>Lọc</span></div>
-					    </div>
+                    <div class="col-xl-3 col-left border-solid-1">
+                        <div class="animate__animated animate__backInLeft">
                             <div class="block border-solid-1">
-                                <p class="title">Lọc theo đánh giá</p>
-                                <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Từ
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star-half-stroke"></i>
-                                </label>
-                                </div>
-                                <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Từ
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                </label>
-                                </div>
-                                <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Từ
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star-half-stroke"></i>
-                                </label>
-                                </div>
-                                <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Từ
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                    <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                </label>
+                                <p class="title">Danh mục sản phẩm</p>
+                                <div class="list colapsed">
+                                    <ul>
+                                        <li>                                    
+                                            <a href="/vietnam_books" class="item item--category">Sách Tiếng Việt</a>
+                                        </li>
+                                        <li>
+                                            <a href="/english_books" class="item item--category">Sách Tiếng Anh</a>
+                                        </li>
+                                        <li>
+                                            <a href="/abilities_books" class="item item--category">Sách Kĩ Năng Sống</a>
+                                        </li>
+                                        <li>
+                                            <a href="/detective_books" class="item item--category">Truyện Trinh Thám</a>
+
+                                        </li>
+                                        <li>
+                                            <a href="/comic_books" class="item item--category">Truyện Tranh</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="block border-solid-1">
-                                
+                            <div class=" block border-solid-1 sidebar_section">
+                                    <p class="title">
+                                        LỌC THEO GIÁ TRỊ SẢN PHẨM
+                                    </p>
+                                    <p>
+                                        <input type="text" id="amount" readonly style="border:0;">
+                                    </p>
+                                    <div id="slider-range"></div>
+                                    <div class="filter_button"><span>Lọc</span></div>
                             </div>
-                    </div>
-                    <div class="col-9 col-right border-solid-1">
-                        <div class="container-fluid mt-3">
-                            <div class="product-controller">
-                                <ul class="product_sorting">
-										<li>
-											<span class="type_sorting_text">Sắp xếp mặc định</span>
-											<i class="fa fa-angle-down"></i>
-											<ul class="sorting_type">
-												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Sắp xếp mặc định</span></li>
-												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Giá</span></li>
-												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Tên sản phẩm a-z</span></li>
-											</ul>
-										</li>
-										<li>
-											<span>Cột sản phẩm</span>
-											<span class="num_sorting_text">4</span>
-											<i class="fa fa-angle-down"></i>
-											<ul class="sorting_num">
-												<li class="num_sorting_btn"><span>4</span></li>
-												<li class="num_sorting_btn"><span>6</span></li>
-												<li class="num_sorting_btn"><span>8</span></li>
-											</ul>
-										</li>
-									</ul>
-                            </div>
-                            <div class="row product-show">
-                                {{#each books}}
-                                <div class="col-xxl-3 col-md-6 col-xs-12 product-item">
-                                    <div class="card card--item">
-                                        <a href="/books/{{this.slug}}/show">
-                                            <img class="card-img-top" src="{{this.image}}" alt="{{this.bookName}}">
-                                        </a>
-                                        <div class="card-body">
-                                            <a href="/books/{{this.slug}}/show" style="text-decoration: none;">
-                                                <h6 class="card-title" style="font-size: 0.8rem;">{{this.bookName}}</h6>
-                                            </a>
-                                            <div class="d-flex justify-content-end">
-                                                    <div class="rating">
-                                                        <span class="small-text" style="color: black;">
-                                                            5/5
-                                                            <i style="color: #fdd836;" class="fa-solid fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                    <div class="sold-product-count">
-                                                        <p class="small-text">Đã bán 1000+</p>
-                                                    </div>
-                                            </div>
-                                            <div class="float-end price-js">    
-                                                <p style="color: red;" class="product-price">{{this.price}}</p>
-                                                <div class="current-price"></div>
-                                            </div>
-                                        </div>
-                                            <div class="discount"></div>
+                                <div class="block border-solid-1">
+                                    <p class="title">Lọc theo đánh giá</p>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Từ
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star-half-stroke"></i>
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Từ
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Từ
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star-half-stroke"></i>
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Từ
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                        <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                    </label>
                                     </div>
                                 </div>
-                                {{/each}}
-                                
-                            </div>                            
+                                <div class="block border-solid-1">
+                                    
+                                </div>
                         </div>
+                    </div>
+                    <div class="col-9 col-right border-solid-1">
+                        
+                            <div class="container-fluid mt-3">
+                                <div class="product-controller">
+                                    <ul class="product_sorting">
+                                            <li>
+                                                <span class="type_sorting_text">Sắp xếp mặc định</span>
+                                                <i class="fa fa-angle-down"></i>
+                                                <ul class="sorting_type">
+                                                    <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Sắp xếp mặc định</span></li>
+                                                    <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Giá</span></li>
+                                                    <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Tên sản phẩm a-z</span></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span>Cột sản phẩm</span>
+                                                <span class="num_sorting_text">4</span>
+                                                <i class="fa fa-angle-down"></i>
+                                                <ul class="sorting_num">
+                                                    <li class="num_sorting_btn"><span>4</span></li>
+                                                    <li class="num_sorting_btn"><span>6</span></li>
+                                                    <li class="num_sorting_btn"><span>8</span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                </div>
+                                <div class="row product-show">
+                                    {{#each books}}
+                                    <div class="col-xxl-3 col-md-6 col-xs-12 product-item">
+                                        <div class="card card--item">
+                                            <a href="/books/{{this.slug}}/show">
+                                                <img class="card-img-top" src="{{this.image}}" alt="{{this.bookName}}">
+                                            </a>
+                                            <div class="card-body">
+                                                <a href="/books/{{this.slug}}/show" style="text-decoration: none;">
+                                                    <h6 class="card-title" style="font-size: 0.8rem;">{{this.bookName}}</h6>
+                                                </a>
+                                                <div class="d-flex justify-content-end">
+                                                        <div class="rating">
+                                                            <span class="small-text" style="color: black;">
+                                                                5/5
+                                                                <i style="color: #fdd836;" class="fa-solid fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="sold-product-count">
+                                                            <p class="small-text">Đã bán 1000+</p>
+                                                        </div>
+                                                </div>
+                                                <div class="float-end price-js">    
+                                                    <p style="color: red;" class="product-price">{{this.price}}</p>
+                                                    <div class="current-price"></div>
+                                                </div>
+                                            </div>
+                                                <div class="discount"></div>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                    
+                                </div>                            
+                            </div>
+            
                     </div>
                 </div>
             </div>

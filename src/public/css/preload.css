@@ -1,8 +1,15 @@
+.preloader {
+    height: 1000vh;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999999999999999999999999;
+}
 .loader {
     position: relative;
     width: 2.5em;
     height: 2.5em;
     transform: rotate(165deg);
+    z-index: 9999999999999999999999999;
 }
 .loader:before, .loader:after {
     content: '';

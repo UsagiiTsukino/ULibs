@@ -24,17 +24,45 @@ jQuery(document).ready(($) =>{
                 
 
 	function initPreloader() {
-		$('.app').css('display', 'none');
-		$('.footer').css('display', 'none');
-		setTimeout(()=>{
-			$(document.body).removeClass('loader');
-			$(document.body).removeAttr('class', false);
-			$('.app').css('display', 'block');
-			$('.footer').css('display', 'block');	
-			initIsotopeFiltering();	
-		}, 1000)
-	}
+		// $('.app').css('display', 'none');
+		// $('.footer').css('display', 'none');
+		// setTimeout(()=>{
+		// 	$(document.body).removeClass('loader');
+		// 	$(document.body).removeAttr('class', false);
+		// 	$('.app').css('display', 'block');
+		// 	$('.footer').css('display', 'block');	
+		// 	initIsotopeFiltering();	
+		// }, 1000)
 
+		$(window).on('load', function(event) {
+			$(document.body).removeClass('preloader');
+			$('.preloader').delay(1000).fadeOut('slow');
+			$('.loader').delay(1000).fadeOut('slow');
+
+		})
+	}
+	// Animate for Product-Infomation
+	$(window).on('scroll', function () {
+		if ($(this).scrollTop() > 380) {
+		  $('.product-infomation').addClass('animate__animated animate__zoomInDown').css('visibility', 'visible');
+		} 
+		// else {
+		//   $('.product-infomation').removeClass('animate__animated animate__zoomInDown');
+		// }
+	  });
+	  //Animate for Footer
+	  $(window).on('scroll', function () {
+		if ($(this).scrollTop() > $(document).height() - 1024 ) {
+		  $('.footer').addClass('animate__animated animate__fadeInUp').css('visibility', 'visible');
+		} 
+		// else {
+		//   $('.product-infomation').removeClass('animate__animated animate__zoomInDown');
+		// }
+	  });
+	  // Handle file chooser model
+	  $('.edit').on('click', () => {
+			$('.file-chooser').toggleClass('show').addClass('animate__animated animate__fadeInDown')
+	  })
 	function formatPrice(price){
 		return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 	}

@@ -188,7 +188,7 @@
 }
 .ui-widget-content {
 	border: 1px solid #dddddd;
-	background: #ffffff;
+	background: #dddddd;
 	color: #333333;
 }
 .ui-widget-content a {
@@ -240,7 +240,7 @@ a:visited.ui-button,
 .ui-button:focus {
 	/*border: 1px solid #cccccc;*/
 	border: 1px solid #cccccc;
-	background: #ededed;
+	background: #fe4c50;
 	font-weight: normal;
 	color: #2b2b2b;
 	cursor:pointer;
@@ -268,8 +268,8 @@ a.ui-button:focus {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-	border: 1px solid #003eff;
-	background: #007fff;
+	background: #fe4c50;
+	background: #fe4c50;
 	font-weight: normal;
 	color: #ffffff;
 }
