@@ -1,6 +1,4 @@
-// const Book = require('../models/Book');
-// const { mongooseToObject } = require('../../util/mongoose');
-// const { param } = require("express/lib/request");
+
 
 jQuery(document).ready(($) =>{
 	initPreloader();
@@ -10,9 +8,10 @@ jQuery(document).ready(($) =>{
 	initFavorite();
 	initIsotopeFiltering();
 	initToolTip();
-	addToCartAction();
 	initLazyLoading();
-
+	initTimer();
+	updateTotalPrice();
+	updateQuantityProductInCart();
 	function initLazyLoading() {
 		$('.lazy').Lazy({
 			
@@ -24,15 +23,7 @@ jQuery(document).ready(($) =>{
                 
 
 	function initPreloader() {
-		// $('.app').css('display', 'none');
-		// $('.footer').css('display', 'none');
-		// setTimeout(()=>{
-		// 	$(document.body).removeClass('loader');
-		// 	$(document.body).removeAttr('class', false);
-		// 	$('.app').css('display', 'block');
-		// 	$('.footer').css('display', 'block');	
-		// 	initIsotopeFiltering();	
-		// }, 1000)
+
 
 		$(window).on('load', function(event) {
 			$(document.body).removeClass('preloader');
@@ -46,18 +37,12 @@ jQuery(document).ready(($) =>{
 		if ($(this).scrollTop() > 380) {
 		  $('.product-infomation').addClass('animate__animated animate__zoomInDown').css('visibility', 'visible');
 		} 
-		// else {
-		//   $('.product-infomation').removeClass('animate__animated animate__zoomInDown');
-		// }
 	  });
 	  //Animate for Footer
 	  $(window).on('scroll', function () {
 		if ($(this).scrollTop() > $(document).height() - 1024 ) {
 		  $('.footer').addClass('animate__animated animate__fadeInUp').css('visibility', 'visible');
 		} 
-		// else {
-		//   $('.product-infomation').removeClass('animate__animated animate__zoomInDown');
-		// }
 	  });
 	  // Handle file chooser model
 	  $('.edit').on('click', () => {
@@ -87,27 +72,48 @@ jQuery(document).ready(($) =>{
     }
 	function initQuantity()
 	{
-		if($('.plus').length && $('.minus').length)
-		{
-			var plus = $('.plus');
-			var minus = $('.minus');
-			var value = $('#quantity_value');
-
-			plus.on('click', function()
+		const quantity_selector = $('.quantity_selector')
+		quantity_selector.each(function() {
+			if($('.plus').length && $('.minus').length)
 			{
-				var x = parseInt(value.text());
-				value.text(x + 1);
-			});
-
-			minus.on('click', function()
-			{
-				var x = parseInt(value.text());
-				if(x > 1)
+				var plus = 	$(this).children('.plus');
+				var minus =	$(this).children('.minus');
+				var value =	$(this).children('#quantity_value');
+				var price = $(this).parent().parent().parent().children('td').children().children('span.product__real-prices').text().replace( 'đ', '' ).replaceAll(',', '').replaceAll(' ','');
+				var finalPrice = $(this).parent().parent().parent().children('td').children().children('span.product__final-prices')
+				price = parseInt(price)
+				plus.on('click', function()
 				{
-					value.text(x - 1);
-				}
-			});
-		}
+					var x = parseInt(value.text());
+					 value.text(x + 1);
+					var _value = parseInt(value.text());
+					let _price = parseInt(price);
+
+					_res = updatePrice(_price, _value);
+					finalPrice.text(formatPrice(_res.toString()) + ' đ')
+					console.log(_value);
+					console.log(_price);
+					console.log(_res)
+				});
+
+				minus.on('click', function()
+				{
+					var x = parseInt(value.text());
+					if(x > 1)
+					{
+						value.text(x - 1);
+					}
+					var _value = parseInt(value.text());
+					let _price = parseInt(price);
+
+					_res = updatePrice(_price, _value);
+					finalPrice.text(formatPrice(_res.toString()) + ' đ')
+					console.log(_value);
+					console.log(_price);
+					console.log(_res)
+				});
+			}
+		})
 	}
 	function initStarRating()
 	{
@@ -157,24 +163,71 @@ jQuery(document).ready(($) =>{
 	}
 	// Searching Feature
 	$(function (){
-		var productsList = [];
-		localStorage.setItem('productsName', JSON.stringify(productsList))
-		$('.card-title').each(function (){
-			productsList.push($(this).text())
-			// console.log($(this));
-			localStorage.setItem('name', JSON.stringify(productsList))
-		});
-		var productsList = localStorage.getItem('name')
-		productsList = JSON.parse(productsList)
-		$( "#search" ).autocomplete({
-			source: productsList
-		  });
+			var productsList = [];
+			localStorage.setItem('productsName', JSON.stringify(productsList))
+			$('.card-title').each(function (){
+				productsList.push($(this).text())
+				// console.log($(this));
+				localStorage.setItem('name', JSON.stringify(productsList))
+			});
+			var productsList = localStorage.getItem('name')
+			productsList = JSON.parse(productsList)
+			$( "#search" ).autocomplete({
+				source: productsList
+			});
 		});
 	
 	// Tooltip
 	function initToolTip(){
 		$('.drawner > item').tooltip()
 	}
+		/*  Init Timer*/
+
+	function initTimer()
+    {
+    	if($('.timer').length)
+    	{
+
+	    	// comment lines below
+	    	var date = new Date();
+	    	date.setDate(date.getDate() + 3);
+	    	var target_date = date.getTime();
+	    	//----------------------------------------
+	 
+			// variables for time units
+			var days, hours, minutes, seconds;
+
+			var d = $('#day');
+			var h = $('#hour');
+			var m = $('#minute');
+			var s = $('#second');
+
+			setInterval(function ()
+			{
+			    // find the amount of "seconds" between now and target
+			    var current_date = new Date().getTime();
+			    var seconds_left = (target_date - current_date) / 1000;
+			 
+			    // do some time calculations
+			    days = parseInt(seconds_left / 86400);
+			    seconds_left = seconds_left % 86400;
+			     
+			    hours = parseInt(seconds_left / 3600);
+			    seconds_left = seconds_left % 3600;
+			     
+			    minutes = parseInt(seconds_left / 60);
+			    seconds = parseInt(seconds_left % 60);
+
+			    // display result
+			    d.text(days);
+			    h.text(hours);
+			    m.text(minutes);
+			    s.text(seconds); 
+			 
+			}, 1000);
+    	}	
+    }
+
 	function initIsotopeFiltering()
     {
     	var sortTypes = $('.type_sorting_btn');
@@ -247,11 +300,26 @@ jQuery(document).ready(($) =>{
 	        });
     	}
     }
-	function addToCartAction(){
-		$('.add_to_cart_button').on('click',  () => {
-			const quantity = parseInt( $('.add-cart > i > span').text()) + 1;
-			$('.add-cart > i > span').text(quantity)
-		})
+	function updatePrice(price, value) {
+		return parseInt(price * value);
 	}
-
+	function updateTotalPrice() {
+		setInterval(() => {
+			var sum = 0;
+			$('.product__final-prices').each(function () {
+				sum += parseInt($(this).text().replace( 'đ', '' ).replaceAll(',', '').replaceAll(' ',''));
+			});
+			$('.total-price > .price').text(formatPrice(sum.toString()) + ' đ');
+		}, 0);
+	}
+	function updateQuantityProductInCart(){
+		let storage = localStorage.getItem('cart');
+        if (storage) {
+            cart = JSON.parse(storage);
+        }
+		$('.add-cart a i span').text(cart.length)
+		$('.total-price > .title').text(
+            `Tổng thanh toán (${cart.length} Sản phẩm):`
+        );
+	}
 })

@@ -166,6 +166,7 @@ th {
     align-items: center;
     margin-top: 16px;
     font-size: 12px !important;
+    cursor: pointer;
 }
 .add_to_cart_button{
     font-weight: 400;

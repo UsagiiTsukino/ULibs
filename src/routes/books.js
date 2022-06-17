@@ -10,6 +10,8 @@ router.put('/:id', BookController.update)
 router.delete('/:id', BookController.delete)
 router.get('/:slug', BookController.search)
 router.get('/:slug/show', BookController.show);
-
+router.get('*', function(req, res){
+    res.status(404).render('404');
+  });
 
 module.exports = router;

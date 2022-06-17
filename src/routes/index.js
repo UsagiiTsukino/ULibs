@@ -8,8 +8,6 @@ const meRouter = require('./me');
 function route(app) {
 
     app.use('/books', booksRouter)
-    // app.use('/me', meRouter);
-    // app.use('/news', newsRouter);
     app.use('/users', usersRouter)
     app.use('/', siteRouter);
     app.use('/me', meRouter);
@@ -20,6 +18,9 @@ function route(app) {
     app.use('/detective_books',siteController.showDetectiveBooks);
     app.use('/comic_books',siteController.showComicBooks);
 
+    app.get('*', function(req, res){
+        res.status(404).render('404');  
+      });
 }
 
 module.exports = route;

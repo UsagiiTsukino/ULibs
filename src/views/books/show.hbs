@@ -1,40 +1,45 @@
 <div class="mapper">
     <a href="/" class="mapper-item">
         <span>Trang chủ</span>
-     </a>    
-        <i class="fa-solid fa-angle-right"></i>
-        <span>{{book.catelogy}}</span>
-        <i class="fa-solid fa-angle-right"></i>
-        <span>{{book.bookName}}</span>
-   
+    </a>
+    <i class="fa-solid fa-angle-right"></i>
+    <span>{{book.catelogy}}</span>
+    <i class="fa-solid fa-angle-right"></i>
+    <span>{{book.bookName}}</span>
+
 </div>
 <div class="container-fluid product-show-details">
     <div class="row lazy">
         <div class="col-lg-4 col-sm-12 col-xs-12 col-left">
             <div class="product-img">
-                <img src="{{book.image}}" alt=""  width="400px" height="400px">
+                <img src="{{book.image}}" alt="" width="400px" height="400px">
             </div>
             <div class="product-action">
                 <div class="text">
-                    Chia sẻ : 
+                    Chia sẻ :
                 </div>
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-facebook.svg" alt="" class="icon" style="margin-left: 8px;">
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-messenger.svg" alt="" class="icon">
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-pinterest.svg" alt="" class="icon">
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-twitter.svg" alt="" class="icon">
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-copy.svg" alt="" class="icon">
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-facebook.svg"
+                    alt="" class="icon" style="margin-left: 8px;">
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-messenger.svg"
+                    alt="" class="icon">
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-pinterest.svg"
+                    alt="" class="icon">
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-twitter.svg" alt=""
+                    class="icon">
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/social-copy.svg" alt=""
+                    class="icon">
                 <div class="separator" style="height: 24px;"></div>
                 <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
                 <div class="favorite-js-text">Thích</div>
             </div>
         </div>
         <div class="col-lg-8 col-sm-12 col-xs-12">
-            
+
             <div class="author-name">
                 <p class="title">Tác giả : {{book.authorName}}</p>
             </div>
             <div class="product-name">
-                <p class="title">{{book.bookName}}</p>  
+                <p class="title">{{book.bookName}}</p>
             </div>
             <div class="product-review">
                 <div class="rating">
@@ -55,20 +60,22 @@
                 <div id="discount"></div>
             </div>
             <div class="item">
-                <img src="https://salt.tikicdn.com/ts/upload/2e/da/c9/4b9c0150392c753ccb65b2595500e9d6.png" width="130" height="24" alt="">
+                <img src="https://salt.tikicdn.com/ts/upload/2e/da/c9/4b9c0150392c753ccb65b2595500e9d6.png" width="130"
+                    height="24" alt="">
                 <div class="separator"></div>
                 <div class="freeship-banner">
-                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/pdp/16ead7e0a68c3cff9f32910e4be08122.png" alt="">
+                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/pdp/16ead7e0a68c3cff9f32910e4be08122.png"
+                        alt="">
                     Miễn phí vận chuyển
                 </div>
             </div>
             <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<span>Số lượng :</span>
-						<div class="quantity_selector">
-							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
-							<span id="quantity_value">1</span>
-							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
-						</div>      
+                <span>Số lượng :</span>
+                <div class="quantity_selector">
+                    <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                    <span id="quantity_value">1</span>
+                    <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                </div>
             </div>
             <div class="delivery_address">
                 <span class="title" style="font-size: 13px;">Giao đến : </span>
@@ -76,27 +83,33 @@
                 <span class="address_change">Đổi địa chỉ</span>
             </div>
             <div class="d-flex">
-                <div class="red_button add_to_cart_button">
+                <div class="red_button add_to_cart_button" onclick="addTOCart()">
                     <i class="fa-solid fa-cart-plus"></i>
                     <a href="#">Thêm vào giỏ hàng</a>
-                    </div>
+                </div>
                 <div class="red_button buy_now_button">
                     <i class="fa-solid fa-store"></i>
                     <a href="#">Mua ngay</a>
-                    </div>
+                </div>
             </div>
             <div class="separator-horizontal" style="width: 450px; margin-top: 16px; margin-left: -16px;"></div>
             <div class="drawner">
-                <div class="item" title="Hoàn toàn yên tâm khi mua hàng ở ULibs Mall với ưu đãi miễn phí trả hàng lên đến 7 ngày.">
-                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/pdp/6c502a2641457578b0d5f5153b53dd5d.png" alt="" class="logo-drawner">
+                <div class="item"
+                    title="Hoàn toàn yên tâm khi mua hàng ở ULibs Mall với ưu đãi miễn phí trả hàng lên đến 7 ngày.">
+                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/pdp/6c502a2641457578b0d5f5153b53dd5d.png"
+                        alt="" class="logo-drawner">
                     <div class="title">7 ngày miễn phí trả hàng</div>
                 </div>
-                <div class="item" title="Nhận lại gấp đôi số tiền mà bạn đã thanh toán cho sản phẩm không chính hãng từ ULibs Mall">
-                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/pdp/16ead7e0a68c3cff9f32910e4be08122.png" alt="" class="logo-drawner">
+                <div class="item"
+                    title="Nhận lại gấp đôi số tiền mà bạn đã thanh toán cho sản phẩm không chính hãng từ ULibs Mall">
+                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/pdp/16ead7e0a68c3cff9f32910e4be08122.png"
+                        alt="" class="logo-drawner">
                     <div class="title">Hàng chính hãng 100%</div>
                 </div>
-                <div class="item" title="Ưu đãi miễn phí vận chuyển lên tới 40,000 VNĐ cho đơn hàng của ULibs Mall từ 150,000 VNĐ">
-                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/pdp/511aca04cc3ba9234ab0e4fcf20768a2.png" alt="" class="logo-drawner">
+                <div class="item"
+                    title="Ưu đãi miễn phí vận chuyển lên tới 40,000 VNĐ cho đơn hàng của ULibs Mall từ 150,000 VNĐ">
+                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/pdp/511aca04cc3ba9234ab0e4fcf20768a2.png"
+                        alt="" class="logo-drawner">
                     <div class="title">Miễn phí vận chuyển</div>
                 </div>
             </div>
@@ -108,42 +121,43 @@
     <div class="col-xxl-8 col-md-12 col-sm-12">
         <p class="title">Thông tin chi tiết</p>
         <table class="table table-striped">
-                <tr>
-                    <th> Công ty phát hành</th>
-                    <td> Mintbooks </td>
-                </tr>
-                <tr>
-                    <th>Thể loại sách</th>
-                    <td>{{book.catelogy}}</td>
-                </tr>
-                <tr>
-                    <th> Tác giả</th>
-                    <td>{{book.authorName}}</td>
-                </tr>
-                <tr>
-                    <th> Loại bìa</th>
-                    <td>Bìa gập</td>
-                </tr>
-                <tr>
-                    <th> Số trang</th>
-                    <td>256</td>
-                </tr>
-                <tr>
-                    <th>Nhà xuất bản</th>
-                    <td>Nhà Xuất Bản Hà Nội</td>
-                </tr>
+            <tr>
+                <th> Công ty phát hành</th>
+                <td> Mintbooks </td>
+            </tr>
+            <tr>
+                <th>Thể loại sách</th>
+                <td>{{book.catelogy}}</td>
+            </tr>
+            <tr>
+                <th> Tác giả</th>
+                <td>{{book.authorName}}</td>
+            </tr>
+            <tr>
+                <th> Loại bìa</th>
+                <td>Bìa gập</td>
+            </tr>
+            <tr>
+                <th> Số trang</th>
+                <td>256</td>
+            </tr>
+            <tr>
+                <th>Nhà xuất bản</th>
+                <td>Nhà Xuất Bản Hà Nội</td>
+            </tr>
         </table>
     </div>
 </div>
 <div class="separator-horizontal" style="height: 16px; background-color: rgb(245,245,250);"></div>
 <div class="product-infomation">
-     <div class="col-xxl-8 col-md-12 col-sm-12">
+    <div class="col-xxl-8 col-md-12 col-sm-12">
         <p class="title">Mô tả sản phẩm</p>
         <p class="content">
             {{book.description}}
         </p>
     </div>
 </div>
+<div id="toast"></div>
 <script>
     document.title = document.querySelector('.product-name > .title').innerText
     const currentPrice = document.getElementById('current-price')
@@ -152,12 +166,90 @@
     const nBeforeNumber = parseInt(beforePrice.innerText)
     const saleOff = 30;
 
-    function formatPrice(price){
+    function formatPrice(price) {
         return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
 
-    currentPrice.innerText = formatPrice(Math.round(nBeforeNumber - (saleOff / 100)*nBeforeNumber ).toString()) + ' đ'
+    currentPrice.innerText = formatPrice(Math.round(nBeforeNumber - (saleOff / 100) * nBeforeNumber).toString()) + ' đ'
     price.innerText = formatPrice(beforePrice.innerText) + ' đ';
     document.getElementById('discount').innerText = saleOff + '%'
 
+    let cart = []
+    const addTOCart = () => {
+        let storage = localStorage.getItem('cart');
+        if (storage) {
+            cart = JSON.parse(storage);
+        }
+        let product = {
+            name: $('.product-name > .title').text(),
+            img: $('.product-img > img').attr('src'),
+            current_price: $('.product-price > #current-price').text().replace('đ', '').replaceAll(',', '').replaceAll(' ', ''),
+            price: $('.product-price > #price').text().replace('đ', '').replaceAll(',', '').replaceAll(' ', ''),
+        }
+
+        let item = cart.find(c => c.product.name == $('.product-name > .title').text())
+        if (item) {
+            item.quantity += 1;
+        }
+        else {
+            cart.push({ product, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        toast({
+            title: "Thành công!",
+            message: "Bạn đã thêm sản phẩm thành công vào giỏ hàng",
+            type: "success",
+            duration: 50000
+        })
+    }
+    function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+        const main = document.getElementById("toast");
+        if (main) {
+            const toast = document.createElement("div");
+
+            // Auto remove toast
+            const autoRemoveId = setTimeout(function () {
+                main.removeChild(toast);
+            }, duration + 1000);
+
+            // Remove toast when clicked
+            toast.onclick = function (e) {
+                if (e.target.closest(".toast__close")) {
+                    main.removeChild(toast);
+                    clearTimeout(autoRemoveId);
+                }
+            };
+
+            const icons = {
+                success: "fas fa-check-circle",
+                info: "fas fa-info-circle",
+                warning: "fas fa-exclamation-circle",
+                error: "fas fa-exclamation-circle"
+            };
+            const icon = icons[type];
+            const delay = (duration / 1000).toFixed(2);
+
+            toast.classList.add("toast", `toast--${type}`,"animate__animated","animate__fadeInRight");
+            // toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`; 
+            toast.innerHTML = `
+                                    <div class="toast__icon">
+                                        <i class="${icon}"></i>
+                                    </div>
+                                    <div class="toast__body">
+                                        <h3 class="toast__title">${title}</h3>
+                                        <p class="toast__msg">${message}</p>
+                                    </div>
+                                    <div class="toast__close">
+                                        <i class="fas fa-times"></i>
+                                    </div>
+                                `;
+            main.appendChild(toast);
+
+            setTimeout(function () {    
+                toast.classList.remove("animate__fadeInRight");
+                toast.classList.add("animate__bounceOutRight");
+                //main.removeChild(toast); 
+            }, 5000);
+        }
+    }
 </script>
