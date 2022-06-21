@@ -10,8 +10,10 @@ jQuery(document).ready(($) =>{
 	initToolTip();
 	initLazyLoading();
 	initTimer();
+	initSlider();
 	updateTotalPrice();
 	updateQuantityProductInCart();
+	
 	function initLazyLoading() {
 		$('.lazy').Lazy({
 			
@@ -161,7 +163,23 @@ jQuery(document).ready(($) =>{
 
 		}
 	}
-	// Searching Feature
+	$(function(){
+		const navHeight = $('.navigation').innerHeight()
+		$('thead tr:nth-child(1) th').css('top', navHeight + 'px');
+	})
+
+	// Responsive Header
+
+	$(function(){
+		const navWidth = $('.navigation').innerWidth()
+		if (navWidth < 400) {
+			$('.user-text > text').text('')
+			$('.btn-search > text').text('')
+			$('.btn-search').css('width', 50 + 'px')
+		}
+	})
+
+	//Searching Feature
 	$(function (){
 			var productsList = [];
 			localStorage.setItem('productsName', JSON.stringify(productsList))
@@ -322,4 +340,42 @@ jQuery(document).ready(($) =>{
             `Tổng thanh toán (${cart.length} Sản phẩm):`
         );
 	}
+	function initSlider()
+    {
+    	if($('.product_slider').length)
+    	{
+    		var slider1 = $('.product_slider');
+
+    		slider1.owlCarousel({
+    			loop:false,
+    			dots:false,
+    			nav:false,
+    			responsive:
+				{
+					0:{items:1},
+					480:{items:2},
+					768:{items:3},
+					991:{items:4},
+					1280:{items:5},
+					1440:{items:5}
+				}
+    		});
+
+    		if($('.product_slider_nav_left').length)
+    		{
+    			$('.product_slider_nav_left').on('click', function()
+    			{
+    				slider1.trigger('prev.owl.carousel');
+    			});
+    		}
+
+    		if($('.product_slider_nav_right').length)
+    		{
+    			$('.product_slider_nav_right').on('click', function()
+    			{
+    				slider1.trigger('next.owl.carousel');
+    			});
+    		}
+    	}
+    }
 })

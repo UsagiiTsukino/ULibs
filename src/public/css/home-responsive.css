@@ -5,4 +5,45 @@
     .book-recommended{
         display: none;
     }
+    .logo{
+        display: none;
+    }
   }
+
+  @media screen and (max-width: 1348px) {
+    .search-form {
+        width: 100%;
+    }
+    .book-recommended{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
+    .middle-header{
+        margin-top: 0px;
+        flex-grow: 1;
+        margin-left: 14px;
+        margin-right: 14px;
+     }
+     .col-right > *{
+        margin-left: 16px;
+     }
+  }
+  @media screen and (max-width: 759px){
+    .voucher-controll {
+        display: none;
+    }
+    .total-price > .title {
+        font-size: 13px;
+    }
+    .total-price > .price {
+        font-size: 18px;
+    }
+    .carousel-item > img {
+        height: 145px;
+    }
+    .btn-search > i {
+        margin-right: 0px;
+    }
+}
