@@ -8,7 +8,13 @@ const route = require('./routes');
 const mongoose = require('mongoose');
 const db = require ('./config/db/mongodb')
 const methodOverride = require('method-override')
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
+
+app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect DB

@@ -46,4 +46,8 @@
     .btn-search > i {
         margin-right: 0px;
     }
+    .red_button a {
+        font-size: 11px;
+        line-height: 13px;
+    }
 }

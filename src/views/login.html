@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="CodePen" />
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"
+    />
+
+    <link
+      rel="mask-icon"
+      type="image/x-icon"
+      href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+      color="#111"
+    />
+
+    <title>ULibs - Đăng nhập</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/FontAwesome.otf"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css.map"
+    />
+    <link rel="stylesheet" href="../../css/login.css">
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="AppendHere"></div>
+        <div class="form">
+            <h1>Đăng nhập</h1>
+            <p><a href="#" target="_blank"> www.sitename.com</a></p>
+
+
+            <div class="input-info">
+        
+                <i class="fa fa-user" style="margin-left: 24px"></i>
+
+                <input type="text" name="username" id="username" placeholder="Tên đăng nhập" />
+                <i class="fa fa-envelope" style="margin-left: 24px"></i>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    required=""
+                    autocomplete="off"
+                    validate=""
+                    name="email"
+                    id="email"
+                />
+                <i class="fa fa-lock" style="margin-left: 24px"></i>
+
+                <input type="password" name="password" id="password" placeholder="Mật khẩu" />
+
+                <input type="checkbox" />
+                <span>Remember Me</span><br />
+            </div>
+
+            <div class="log-sign">
+                <!--the login button and the sign up button>[to the sign up page]-->
+                <button class="login" onclick="login()">
+                <i class="fa fa-mail-forward (alias)"></i> Log In
+                </button>
+                <!--log in-->
+
+                <a href="#" target="_blank">
+                <!--the link to the sign up page-->
+                <button class="signup" form="signupform">
+                    <i class="fa fa-plus"></i> Sign Up
+                </button>
+                </a>
+            </div>
+            <!--end of the log-sign-->
+
+            <div class="social-media">
+                <!--sign up by fb and tw-->
+                <button class="btn1">
+                <a href="#" target="_blank"
+                    ><i class="fa fa-facebook"></i> Sign up with facebook</a
+                >
+                </button>
+
+                <button class="btn2">
+                <a href="#" target="_blank"
+                    ><i class="fa fa-twitter"></i> Sign up with twitter</a
+                >
+                </button>
+            </div>
+
+            <p class="forget-password">
+                If you forget your password please <a href="#">click here</a>
+            </p>
+        </div>
+      
+    <!--End login form-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script id="rendered-js">
+        //this function to applay your animate style
+        function animate_Me(target, moveMe) {
+          $(target).focus(function () {
+            $(moveMe).animate({ marginLeft: "266px" });
+          });
+          $(target).focusout(function () {
+            $(moveMe).animate({ marginLeft: "24px" });
+          });
+        }
+        //--------------------
+
+        animate_Me("input[type='text']", ".fa-user");
+        animate_Me("input[placeholder='Your Last Name']", ".fa-user-plus");
+        animate_Me("input[type='email']", ".fa-envelope");
+        animate_Me("input[type='password']", ".fa-lock");
+        animate_Me("input[placeholder='Confirm Password']", ".fa-refresh");
+    </script>
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+              let name = cname + "=";
+              let decodedCookie = decodeURIComponent(document.cookie);
+              let ca = decodedCookie.split(';');
+              for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+                }
+              }
+            return "";
+          }
+
+      function login() {
+        $.ajax({  
+          url: '/login',
+          type: 'POST',
+          data: {
+            username : $('#username').val(),
+            email : $('#email').val(),
+            password : $('#password').val(), 
+          }
+        })
+          .then(data => {
+            setCookie('token', data.token, 1);
+            window.location.href = 'http://localhost:3000';
+          })
+          .catch(err => console.log(err));
+      }
+    </script>
+  </body>
+</html>

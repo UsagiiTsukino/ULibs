@@ -34,6 +34,7 @@ jQuery(document).ready(($) =>{
 
 		})
 	}
+	// $('#search').val() == 
 	// Animate for Product-Infomation
 	$(window).on('scroll', function () {
 		if ($(this).scrollTop() > 380) {
@@ -50,6 +51,12 @@ jQuery(document).ready(($) =>{
 	  $('.edit').on('click', () => {
 			$('.file-chooser').toggleClass('show').addClass('animate__animated animate__fadeInDown')
 	  })
+	  // FIx Navbar
+	  $('.dropdown-item.infomation-account__navbar').on('click', (e) => {
+		e.stopPropagation();
+	  });
+	//   // Delete token when logout
+	//   $.removeCookie('token', { path: '/login' });
 	function formatPrice(price){
 		return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 	}

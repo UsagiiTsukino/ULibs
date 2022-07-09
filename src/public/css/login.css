@@ -1,0 +1,227 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-image: url(http://ryokb95.upload-website.com/login-signupform/imgs/1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: sans-serif;
+  }
+
+  /*Start.form style*/
+ .form {
+    background-image: url("http://ryokb95.upload-website.com/login-signupform/imgs/1.jpg");
+    height: 550px;
+    width: 300px;
+    margin: 60px auto;
+    border-radius: 8px;
+  }
+
+  button {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.58);
+  }
+
+  /*End.form style*/
+
+  /*****************************************/
+
+  /*Start header*/
+ .form h1 {
+    text-align: center;
+    padding-top: 64px;
+  }
+
+ .form p {
+    color: #828999;
+    font-size: 11px;
+    text-align: center;
+    margin-top: -19px;
+  }
+
+  /*The link of the site in the p tag ***/
+ .form p > a {
+    color: #828999;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+ .form p > a:hover {
+    color: #1da1f2;
+  }
+
+ .form p > a:active {
+    color: #1da1f2;
+  }
+
+  /*End login header*/
+
+  /* Start the input-info style*/
+  .input-info {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  /*the containe div style*/
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    border: 1px solid #828999;
+    padding: 15px 20px;
+    border-radius: 5px;
+    width: 90%;
+    background: none;
+    margin: 5px 5px 5px 17px;
+    outline: none;
+    transition: 0.3s;
+    text-indent: 15px;
+    overflow: hidden;
+  }
+
+  .fa-refresh,
+  .fa-lock,
+  .fa-envelope,
+  .fa-user-plus,
+  .fa-user {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 24px;
+    color: #828999;
+    display: block;
+  }
+
+  .input-info input:hover {
+    background: #435688;
+    color: #fff;
+  }
+
+  .input-info input[type="checkbox"] {
+    margin-left: 17px;
+    cursor: pointer;
+    margin-top: 7px;
+  }
+
+  .input-info span {
+    color: #83899a;
+    font-size: 11px;
+  }
+
+  .input-info span > a {
+    color: #1da1f2;
+  }
+
+  .input-info span > a:hover {
+    color: #fff;
+  }
+
+  /*End the input-info style*/
+
+  /*start the tow button login and sign up*/
+  .log-sign {
+    text-align: center;
+  }
+
+  /*the containe div style*/
+  .signup,
+  .login {
+    /*button login style*/
+    padding: 10px;
+    margin-top: 16px;
+    background: #435688;
+    color: #fff;
+    width: 103px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 1px solid #435688;
+    outline: none;
+  }
+
+  .signup {
+    /*button signup style*/
+    background: #9e3434;
+    border: 1px solid #9e3434;
+  }
+
+  .log-sign .signup > a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /*the signup link style*/
+  .log-sign button:hover {
+    background: none;
+    border: 1px solid #828999;
+    color: #828999;
+  }
+
+  .send {
+    /*sugn up button at the signup.html page*/
+    padding: 10px;
+    margin-top: 16px;
+    background: #435688;
+    color: #fff;
+    width: 103px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 1px solid #435688;
+    outline: none;
+    margin-left: 32%;
+  }
+
+  /*facebook social-media button style*/
+  .social-media {
+    margin-bottom: 35px;
+  }
+
+  .social-media .btn1 {
+    /*facebook button*/
+    border: 0;
+    background: #3b5998;
+    color: #fff;
+    padding: 15px;
+    width: 90%;
+    margin-left: 16px;
+    margin-top: 14px;
+    border-radius: 5px;
+  }
+
+  .social-media .btn2 {
+    /*twitter button*/
+    border: 0;
+    padding: 15px;
+    margin-top: 11px;
+    width: 90%;
+    margin-left: 16px;
+    border-radius: 5px;
+    background: #1da1f2;
+    color: #fff;
+  }
+
+  .social-media button > a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /************/
+
+  .forget-password {
+    text-align: center;
+  }
+
+  .forget-password a {
+    color: #1da1f2;
+    transition: 0.3s;
+    text-decoration: underline;
+  }
+
+  .forget-password a:hover {
+    color: #fff;
+  }
+
+  .forget-password a:active {
+    color: #fff;
+  }
+

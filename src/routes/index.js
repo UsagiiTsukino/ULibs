@@ -3,14 +3,19 @@ const usersRouter = require('./users');
 // const newsRouter = require('./news');
 const siteRouter = require('./site');
 const meRouter = require('./me');
- const siteController = require('../app/controllers/SiteController');
+const loginRouter = require('./login');
+const siteController = require('../app/controllers/SiteController');
+const LoginController = require('../app/controllers/LoginController.js');
+const { urlencoded } = require('body-parser');
+
 
 function route(app) {
 
-    app.use('/books', booksRouter)
-    app.use('/users', usersRouter)
-    app.use('/', siteRouter);
-    app.use('/me', meRouter);
+    app.use('/books', LoginController.checkAuth, booksRouter)
+    app.use('/users', LoginController.checkAuth, usersRouter)
+    app.use('/login', loginRouter);
+    app.use('/', LoginController.checkAuth, siteRouter);
+    app.use('/me', LoginController.checkAuth, meRouter);
 
     app.use('/vietnam_books',siteController.showVietNamBooks);
     app.use('/english_books',siteController.showEnglishBooks);
