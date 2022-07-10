@@ -185,11 +185,12 @@
             img: $('.product-img > img').attr('src'),
             current_price: $('.product-price > #current-price').text().replace('đ', '').replaceAll(',', '').replaceAll(' ', ''),
             price: $('.product-price > #price').text().replace('đ', '').replaceAll(',', '').replaceAll(' ', ''),
+            slug: window.location.href,
         }
 
         let item = cart.find(c => c.product.name == $('.product-name > .title').text())
         if (item) {
-            item.quantity += 1;
+            item.quantity += parseInt($('#quantity_value').text());
         }
         else {
             cart.push({ product, quantity: 1 });
