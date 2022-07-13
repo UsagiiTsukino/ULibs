@@ -6,6 +6,8 @@ const meRouter = require('./me');
 const loginRouter = require('./login');
 const siteController = require('../app/controllers/SiteController');
 const LoginController = require('../app/controllers/LoginController.js');
+const registerRouter = require('./register');
+
 const { urlencoded } = require('body-parser');
 
 
@@ -14,6 +16,7 @@ function route(app) {
     app.use('/books', LoginController.checkAuth, booksRouter)
     app.use('/users', LoginController.checkAuth, usersRouter)
     app.use('/login', loginRouter);
+    app.use('/register', registerRouter);
     app.use('/', LoginController.checkAuth, siteRouter);
     app.use('/me', LoginController.checkAuth, meRouter);
 

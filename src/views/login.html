@@ -2,30 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <link
-      rel="apple-touch-icon"
-      type="image/png"
-      href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png"
-    />
-    <meta name="apple-mobile-web-app-title" content="CodePen" />
-
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"
-    />
-
-    <link
-      rel="mask-icon"
-      type="image/x-icon"
-      href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
-      color="#111"
-    />
-
     <title>ULibs - Đăng nhập</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="icon" href="../public/img/logo/logo.jpg">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -89,9 +68,9 @@
                 <input type="password" name="password" id="password" placeholder="Mật khẩu" />
 
                 <input type="checkbox" />
-                <span>Remember Me</span><br />
+                <span>Nhớ mật khẩu</span><br />
             </div>
-
+            <div class="alert">Tài khoản hoặc mật khẩu sai. Vui lòng thử lại</div>
             <div class="log-sign">
                 <!--the login button and the sign up button>[to the sign up page]-->
                 <button class="login" onclick="login()">
@@ -99,32 +78,32 @@
                 </button>
                 <!--log in-->
 
-                <a href="#" target="_blank">
+                <a href="/register" target="_blank">
                 <!--the link to the sign up page-->
                 <button class="signup" form="signupform">
-                    <i class="fa fa-plus"></i> Sign Up
+                    <i class="fa fa-plus"></i> Đăng kí
                 </button>
                 </a>
             </div>
             <!--end of the log-sign-->
-
+        
             <div class="social-media">
                 <!--sign up by fb and tw-->
                 <button class="btn1">
                 <a href="#" target="_blank"
-                    ><i class="fa fa-facebook"></i> Sign up with facebook</a
+                    ><i class="fa fa-facebook"></i> Đăng nhập với Facebook</a
                 >
                 </button>
 
                 <button class="btn2">
                 <a href="#" target="_blank"
-                    ><i class="fa fa-twitter"></i> Sign up with twitter</a
+                    ><i class="fa fa-twitter"></i> Đăng nhập với Twitter</a
                 >
                 </button>
             </div>
 
             <p class="forget-password">
-                If you forget your password please <a href="#">click here</a>
+                Nếu bạn quê mật khẩu hẫy <a href="#">ấn ở đây</a>
             </p>
         </div>
       
@@ -182,9 +161,14 @@
           }
         })
           .then(data => {
+            if (data != 'that bai') {
             setCookie('token', data.token, 1);
             window.location.href = 'http://localhost:3000';
-          })
+            }
+          else {
+            $('.alert').css('display', 'block');
+          }
+      })
           .catch(err => console.log(err));
       }
     </script>

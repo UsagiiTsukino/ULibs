@@ -8,6 +8,9 @@ class MeController {
     cart (req, res, next){
         res.render('cart')
     }
+    payment (req, res, next){
+        res.render('payment')
+    }
 }
 
 module.exports = new MeController();

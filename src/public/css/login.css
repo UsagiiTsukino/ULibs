@@ -3,7 +3,7 @@
   }
 
   body {
-    background-image: url(http://ryokb95.upload-website.com/login-signupform/imgs/1.jpg);
+    background-image: url(../img/logo/login-bgc.gif);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,7 +12,6 @@
 
   /*Start.form style*/
  .form {
-    background-image: url("http://ryokb95.upload-website.com/login-signupform/imgs/1.jpg");
     height: 550px;
     width: 300px;
     margin: 60px auto;
@@ -31,6 +30,7 @@
  .form h1 {
     text-align: center;
     padding-top: 64px;
+    color: #fff;
   }
 
  .form p {
@@ -77,6 +77,7 @@
     transition: 0.3s;
     text-indent: 15px;
     overflow: hidden;
+    color: #fff;
   }
 
   .fa-refresh,
@@ -103,7 +104,7 @@
   }
 
   .input-info span {
-    color: #83899a;
+    color: #fff;
     font-size: 11px;
   }
 
@@ -153,7 +154,7 @@
   .log-sign button:hover {
     background: none;
     border: 1px solid #828999;
-    color: #828999;
+    color: #fff;
   }
 
   .send {
@@ -224,4 +225,15 @@
   .forget-password a:active {
     color: #fff;
   }
-
+  i.fa{
+    margin-right: 8px;
+  }
+ .alert {
+  display: none;
+  font-size: 13px;
+  color: red;
+  background-color: rgba(0, 0, 0, 0.58);
+  padding: 4px;
+  font-weight: bold;
+  font-style: italic;
+ }

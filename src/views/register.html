@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ULibs - Đăng kí thành viên</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../public/img/logo/logo.jpg">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/FontAwesome.otf"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css.map"
+    />
+    <link rel="stylesheet" href="../../css/login.css">
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="AppendHere"></div>
+        <div class="form">
+            <h1>Đăng kí</h1>
+            <p><a href="#" target="_blank"> www.ULibs.com</a></p>
+
+
+            <div class="input-info">
+        
+                <i class="fa fa-user" style="margin-left: 24px"></i>
+
+                <input type="text" name="username" id="username" placeholder="Tên đăng nhập" />
+                <i class="fa fa-envelope" style="margin-left: 24px"></i>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    required=""
+                    autocomplete="off"
+                    validate=""
+                    name="email"
+                    id="email"
+                />
+                <i class="fa fa-lock" style="margin-left: 24px"></i>
+
+                <input type="password" name="password" id="password" placeholder="Mật khẩu" />
+
+                <input type="password" name="re-password" id="re-password" placeholder="Nhập lại mật khẩu" />
+            </div>
+            <div class="alert">Tài khoản đã có người sử dụng . Vui lòng thử lại</div>
+            <div class="log-sign">
+
+                <a href="/login">
+                  <button class="login">
+                  <i class="fa fa-mail-forward (alias)"></i> Log In
+                  </button>                  
+                </a>
+
+                <a href="#">                <!--the link to the sign up page-->
+                <button class="signup">
+                    <i class="fa fa-plus"></i> Đăng kí
+                </button>
+                </a>
+            </div>
+        </div>
+      
+    <!--End Register form-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script id="rendered-js">
+        //this function to applay your animate style
+        function animate_Me(target, moveMe) {
+          $(target).focus(function () {
+            $(moveMe).animate({ marginLeft: "266px" });
+          });
+          $(target).focusout(function () {
+            $(moveMe).animate({ marginLeft: "24px" });
+          });
+        }
+        //--------------------
+
+        animate_Me("input[type='text']", ".fa-user");
+        animate_Me("input[placeholder='Your Last Name']", ".fa-user-plus");
+        animate_Me("input[type='email']", ".fa-envelope");
+        animate_Me("input[type='password']", ".fa-lock");
+        animate_Me("input[placeholder='Confirm Password']", ".fa-refresh");
+    </script>
+
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+              let name = cname + "=";
+              let decodedCookie = decodeURIComponent(document.cookie);
+              let ca = decodedCookie.split(';');
+              for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+                }
+              }
+            return "";
+          }
+        function Register() {
+        $.ajax({  
+          url: '/register',
+          type: 'POST',
+          data: {
+            username : $('#username').val(),
+            email : $('#email').val(),
+            password : $('#password').val(), 
+          }
+        })
+          .then(data => {
+            if (data == 'user got duplicated') {
+              $('.alert').css('display', 'block').text('Tài khoản đã có người sử dụng');
+            }
+            else if (data != 'that bai') {
+              $('.alert').css({
+                display: 'block',
+                color : '#01fb01',
+              }).text('Đăng kí thành công');
+            }
+            else {
+              $('.alert').css('display', 'block');
+            }
+      })
+          .catch(err => {
+           console.log(err);
+          });
+      }
+
+      $('.signup').on('click', () => {
+        if ($('input#password').val() === $('input#re-password').val()){
+          Register();
+        }
+        else {
+          $('.alert').text('Nhập lại mật khẩu không đúng. Vui lòng thử lại');
+        }
+      })
+
+    </script>
+  </body>
+</html>

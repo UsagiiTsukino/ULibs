@@ -35,12 +35,12 @@ jQuery(document).ready(($) =>{
 		})
 	}
 
-	// if ($('#search').val() === '') {
-	// 	$('.btn-search').css('cursor', 'no-drop').on('click', function(event) {
-	// 		event.preventDefault();
-	// 	})
-	// }
+	// 
+		$('.total-price > button').on('click', function() {
+			location.pathname = 'me/checkout/payment'
+		})
 
+	// Disabled submit action when form got not insert before
 	$(':input[type="submit"]').prop('disabled', true);
 	$('input[type="text"]').keyup(function() {
 	   if($(this).val() != '') {
