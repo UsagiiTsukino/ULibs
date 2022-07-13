@@ -18,7 +18,7 @@
     "jquery-lazy": "^1.7.11",
     "method-override": "^3.0.0",
     "mongoose": "^6.3.3",
-    "mongoose-slug-generator": "^1.0.4",
+    "mongoose-slug-generator": "^1.0.4"
     
   },
   "dependencies": {
