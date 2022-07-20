@@ -19,7 +19,6 @@ class RegisterController {
    register(req, res, next){
         const user = new users(req.body);
         bcrypt.hash(user.password, 10, function(err, hash){
-
             if (err) {
                 console.log(err);
                 return;

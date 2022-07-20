@@ -12,7 +12,7 @@ jQuery(document).ready(($) =>{
 	initSlider();
 	updateTotalPrice();
 	updateQuantityProductInCart();
-	
+	initBegin();
 
 
 	function initPreloader() {
@@ -25,39 +25,40 @@ jQuery(document).ready(($) =>{
 
 		})
 	}
-
+	function initBegin(){
 	// 
 		$('.total-price > button').on('click', function() {
 			location.pathname = 'me/checkout/payment'
 		})
 
-	// Disabled submit action when form got not insert before
-	$(':input[type="submit"]').prop('disabled', true);
-	$('input[type="text"]').keyup(function() {
-	   if($(this).val() != '') {
-		  $(':input[type="submit"]').prop('disabled', false).css('cursor', 'pointer');
-	   }
-	});
-	// Animate for Product-Infomation
-	$(window).on('scroll', function () {
-		if ($(this).scrollTop() > 380) {
-		  $('.product-infomation').addClass('animate__animated animate__zoomInDown').css('visibility', 'visible');
-		} 
-	  });
-	  //Animate for Footer
-	  $(window).on('scroll', function () {
-		if ($(this).scrollTop() > $(document).height() - 1024 ) {
-		  $('.footer').addClass('animate__animated animate__fadeInUp').css('visibility', 'visible');
-		} 
-	  });
-	  // Handle file chooser model
-	  $('.edit').on('click', () => {
-			$('.file-chooser').toggleClass('show').addClass('animate__animated animate__fadeInDown')
-	  })
-	  // FIx Navbar
-	  $('.dropdown-item.infomation-account__navbar').on('click', (e) => {
-		e.stopPropagation();
-	  });
+		// Disabled submit action when form got not insert before
+		$(':input[type="submit"]').prop('disabled', true);
+		$('input[type="text"]').keyup(function() {
+		if($(this).val() != '') {
+			$(':input[type="submit"]').prop('disabled', false).css('cursor', 'pointer');
+		}
+		});
+		// Animate for Product-Infomation
+		$(window).on('scroll', function () {
+			if ($(this).scrollTop() > 380) {
+			$('.product-infomation').addClass('animate__animated animate__zoomInDown').css('visibility', 'visible');
+			} 
+		});
+		//Animate for Footer
+		$(window).on('scroll', function () {
+			if ($(this).scrollTop() > $(document).height() - 1024 ) {
+			$('.footer').addClass('animate__animated animate__fadeInUp').css('visibility', 'visible');
+			} 
+		});
+		// Handle file chooser model
+		$('.edit').on('click', () => {
+				$('.file-chooser').toggleClass('show').addClass('animate__animated animate__fadeInDown')
+		})
+		// FIx Navbar
+		$('.dropdown-item.infomation-account__navbar').on('click', (e) => {
+			e.stopPropagation();
+		});
+	}
 	//   // Delete token when logout
 	//   $.removeCookie('token', { path: '/login' });
 	function formatPrice(price){
@@ -342,13 +343,13 @@ jQuery(document).ready(($) =>{
 	}
 	function updateQuantityProductInCart(){
 		let storage = localStorage.getItem('cart');
-        if (storage) {
-            cart = JSON.parse(storage);
+			if (storage) {
+				cart = JSON.parse(storage);
+				$('.add-cart a i span').text(cart.length)
+				$('.total-price > .title').text(
+				`Tổng thanh toán (${cart.length} Sản phẩm):`
+			);
         }
-		$('.add-cart a i span').text(cart.length)
-		$('.total-price > .title').text(
-            `Tổng thanh toán (${cart.length} Sản phẩm):`
-        );
 	}
 	function initSlider()
     {
