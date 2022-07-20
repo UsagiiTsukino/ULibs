@@ -3,6 +3,7 @@ const { mutipleMongooseToObject } = require('../../util/mongoose');
 const { param } = require("express/lib/request");
 const path = require('path');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const siteController = require('./SiteController');
 
@@ -20,28 +21,32 @@ class LoginController {
         var password = req.body.password
         var email = req.body.email
 
-        console.log(username);
+            users.findOne({ 
+                username: username, 
+                email: email,
+            })
+                .then(data => {
+                    console.log(data);
+                    if(data){
+                        bcrypt.compare(password, data.password).then(function(result) {
+                            if (result){
+                                var token =  jwt.sign({
+                                        _id : data._id,
+                                    }, 'mk')
+                                return res.json({
+                                    message : 'Thanh cong',
+                                    token : token,
+                                })
+                            }
+                            else return res.json('that bai')
+                        });      
+                    }
+                    else return res.json('that bai')
+                })
+                .catch(err => {
+                    res.status(500).json({ error: 'loi server'})
+                })
 
-        users.findOne({ 
-            username: username, 
-            password: password,
-            email: email,
-        })
-            .then(data => {
-                if(data){
-                  var token =  jwt.sign({
-                    _id : data._id,
-                  }, 'mk')
-                    return res.json({
-                        message : 'Thanh cong',
-                        token : token,
-                    })
-                }
-                else return res.json('that bai')
-            })
-            .catch(err => {
-                res.status(500).json({ error: 'loi server'})
-            })
         }
     checkAuth(req, res, next) {
         try {

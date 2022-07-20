@@ -8,21 +8,12 @@ jQuery(document).ready(($) =>{
 	initFavorite();
 	initIsotopeFiltering();
 	initToolTip();
-	initLazyLoading();
 	initTimer();
 	initSlider();
 	updateTotalPrice();
 	updateQuantityProductInCart();
 	
-	function initLazyLoading() {
-		$('.lazy').Lazy({
-			
-			effect: 'fadeIn',
-			duration : 300,
-			delay: 5000
-		});
-	}
-                
+
 
 	function initPreloader() {
 

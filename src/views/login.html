@@ -162,8 +162,8 @@
         })
           .then(data => {
             if (data != 'that bai') {
-            setCookie('token', data.token, 1);
-            window.location.pathname = '/';
+              setCookie('token', data.token, 1);
+              window.location.pathname = '/';
             }
           else {
             $('.alert').css('display', 'block');
