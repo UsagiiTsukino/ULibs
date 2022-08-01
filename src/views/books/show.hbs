@@ -193,7 +193,7 @@
             item.quantity += parseInt($('#quantity_value').text());
         }
         else {
-            cart.push({ product, quantity: 1 });
+            cart.push({ product, quantity: parseInt($('#quantity_value').text()) });
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         toast({

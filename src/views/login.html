@@ -109,6 +109,7 @@
       
     <!--End login form-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script id="rendered-js">
         //this function to applay your animate style
         function animate_Me(target, moveMe) {
@@ -161,7 +162,7 @@
           }
         })
           .then(data => {
-            if (data != 'that bai') {
+            if (data.success) {
               setCookie('token', data.token, 1);
               window.location.pathname = '/';
             }
@@ -171,6 +172,7 @@
       })
           .catch(err => console.log(err));
       }
+
     </script>
   </body>
 </html>

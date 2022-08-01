@@ -34,11 +34,13 @@ class LoginController {
                                         _id : data._id,
                                     }, 'mk')
                                 return res.json({
-                                    message : 'Thanh cong',
+                                    success : true,
                                     token : token,
                                 })
                             }
-                            else return res.json('that bai')
+                            else return res.json({
+                                success : false,
+                            })
                         });      
                     }
                     else return res.json('that bai')
