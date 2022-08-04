@@ -48,11 +48,12 @@ app.engine(
         }
     }),
 );
+app.set('trust proxy', 1);
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }
+    cookie: { secure: true }
   }))
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
