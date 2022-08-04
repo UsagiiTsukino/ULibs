@@ -35,13 +35,26 @@
     />
     <link rel="stylesheet" href="../../css/login.css">
     <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '378641464423407',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v14.0'
+        });
+      };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script>
       if (document.location.search.match(/type=embed/gi)) {
         window.parent.postMessage("resize", "*");
       }
     </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0&appId=378641464423407&autoLogAppEvents=1" nonce="ocCsmxsf"></script>
   </head>
 
   <body>
+    <div id="fb-root"></div>
     <div id="AppendHere"></div>
         <div class="form">
             <h1>Đăng nhập</h1>
@@ -89,17 +102,7 @@
         
             <div class="social-media">
                 <!--sign up by fb and tw-->
-                <button class="btn1">
-                <a href="#" target="_blank"
-                    ><i class="fa fa-facebook"></i> Đăng nhập với Facebook</a
-                >
-                </button>
-
-                <button class="btn2">
-                <a href="#" target="_blank"
-                    ><i class="fa fa-twitter"></i> Đăng nhập với Twitter</a
-                >
-                </button>
+                <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
             </div>
 
             <p class="forget-password">

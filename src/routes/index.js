@@ -14,6 +14,18 @@ const req = require('express/lib/request');
 
 function route(app) {
 
+  app.get('/auth/facebook',
+  passport.authenticate('facebook',{
+    scope: ['user_birthday']
+  }));
+
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    });
+
     app.use('/books', LoginController.checkAuth, booksRouter)
     app.use('/users', LoginController.checkAuth, usersRouter)
     app.use('/login', loginRouter);
@@ -21,17 +33,6 @@ function route(app) {
     app.use('/', LoginController.checkAuth, siteRouter);
     app.use('/me', LoginController.checkAuth, meRouter);
 
-    app.get('/auth/facebook',
-    passport.authenticate('facebook',{
-      scope: ['user_birthday']
-    }));
-
-    app.get('/auth/facebook/callback',
-      passport.authenticate('facebook', { failureRedirect: '/login' }),
-      function(req, res) {
-        // Successful authentication, redirect home.
-        res.redirect('/');
-      });
 
     app.get('/api/users', (req, res, next) => {
       res.json(req.user);
