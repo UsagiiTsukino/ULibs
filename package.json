@@ -26,6 +26,7 @@
     "https": "^1.0.0",
     "jquery-lazy": "^1.7.11",
     "jsonwebtoken": "^8.5.1",
+    "memorystore": "^1.6.7",
     "method-override": "^3.0.0",
     "mongoose": "^6.3.3",
     "mongoose-slug-generator": "^1.0.4",

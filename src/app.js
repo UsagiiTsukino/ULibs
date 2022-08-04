@@ -17,6 +17,7 @@ const { doesNotMatch } = require('assert');
 const { profile } = require('console');
 const https = require('https');
 const fs = require('fs');
+const MemoryStore = require('memorystore')(session)
 
 const options = {
   key: fs.readFileSync('key.pem'),
@@ -53,7 +54,10 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
+    cookie: { secure: true, maxAge: 86400000 }
   }))
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
