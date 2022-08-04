@@ -82,7 +82,10 @@ passport.use(new FacebookStrategy({
   }
 ));
 route(app);
-https.createServer(options,app).listen(port, () => {
+// https.createServer(options,app).listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// })
+app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 })
 //Route init
