@@ -7,8 +7,9 @@ const loginRouter = require('./login');
 const siteController = require('../app/controllers/SiteController');
 const LoginController = require('../app/controllers/LoginController.js');
 const registerRouter = require('./register');
-
+const passport = require('passport');
 const { urlencoded } = require('body-parser');
+const req = require('express/lib/request');
 
 
 function route(app) {
@@ -20,6 +21,21 @@ function route(app) {
     app.use('/', LoginController.checkAuth, siteRouter);
     app.use('/me', LoginController.checkAuth, meRouter);
 
+    app.get('/auth/facebook',
+    passport.authenticate('facebook',{
+      scope: ['user_birthday']
+    }));
+
+    app.get('/auth/facebook/callback',
+      passport.authenticate('facebook', { failureRedirect: '/login' }),
+      function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/');
+      });
+
+    app.get('/api/users', (req, res, next) => {
+      res.json(req.user);
+    });
     app.use('/vietnam_books',siteController.showVietNamBooks);
     app.use('/english_books',siteController.showEnglishBooks);
     app.use('/abilities_books',siteController.showAbilitiesBooks)
