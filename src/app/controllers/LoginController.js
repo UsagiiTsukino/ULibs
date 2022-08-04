@@ -53,8 +53,8 @@ class LoginController {
     checkAuth(req, res, next) {
         try {
             var token = req.cookies.token;
-            var result = jwt.verify(token, 'mk') || req.cookies['connect.sid'];
-            if(result){
+            var result = jwt.verify(token, 'mk')
+            if(result || req.cookies['connect.sid']){
                 next()
             }
         } catch (error) {
