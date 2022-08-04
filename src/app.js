@@ -18,12 +18,19 @@ const { profile } = require('console');
 const https = require('https');
 const fs = require('fs');
 const MemoryStore = require('memorystore')(session)
+const enforce = require('express-sslify');
+const req = require('express/lib/request');
 
 const options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 };
-
+// app.use((req, res, next) => {
+//   if (req.headers['x-forwarded-proto'] !== 'https') {
+//     return res.redirect(['https://', req.get('Host'), req.url].join(''));
+//   }
+//   return next();
+// })
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
@@ -59,6 +66,7 @@ app.use(session({
     }),
     cookie: { secure: true, maxAge: 86400000 }
   }))
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(passport.initialize());
@@ -73,7 +81,7 @@ app.use(passport.session())
 passport.use(new FacebookStrategy({
     clientID: '378641464423407',
     clientSecret: '81259984488044e2aeb14dee8f5a4015',
-    callbackURL: "https://adf8-113-165-213-230.ngrok.io/auth/facebook/callback",
+    callbackURL: "https://ulibs.herokuapp.com/auth/facbook/callback",
     profileFields: ['id', 'displayName','photos','email'],
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -82,12 +90,13 @@ passport.use(new FacebookStrategy({
   }
 ));
 route(app);
-// https.createServer(options,app).listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// })
-app.listen(port, () => {
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
+https.createServer(options,app).listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 })
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// })
 //Route init
 
 
