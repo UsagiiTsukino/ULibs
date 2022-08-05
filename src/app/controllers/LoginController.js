@@ -58,6 +58,7 @@ class LoginController {
                 next()
             }
         } catch (error) {
+            console.log(error);
             return res.redirect('/login')
         }
 

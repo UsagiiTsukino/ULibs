@@ -10,7 +10,7 @@ const registerRouter = require('./register');
 const passport = require('passport');
 const { urlencoded } = require('body-parser');
 const req = require('express/lib/request');
-
+const jwt = require('jsonwebtoken');
 
 function route(app) {
 
@@ -22,7 +22,10 @@ function route(app) {
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
-      // Successful authentication, redirect home.
+      var token =  jwt.sign({
+        _id : 'FacebookStrategy',
+      }, 'mk')
+        res.cookie('token',token, { maxAge: 60 * 60 * 24}); 
       res.redirect('/');
     });
 
@@ -43,9 +46,9 @@ function route(app) {
     app.use('/detective_books',siteController.showDetectiveBooks);
     app.use('/comic_books',siteController.showComicBooks);
 
-    // app.get('*', function(req, res){
-    //     res.status(404).render('404');  
-    //   });
+    app.get('*', function(req, res){
+        res.status(404).render('404');  
+      });
 }
 
 module.exports = route;

@@ -20,17 +20,18 @@ const fs = require('fs');
 const MemoryStore = require('memorystore')(session)
 const enforce = require('express-sslify');
 const req = require('express/lib/request');
-
+const users = require('./app/models/User');
+const jwt = require('jsonwebtoken');
 const options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 };
-app.use((req, res, next) => {
-  if (req.headers['x-forwarded-proto'] !== 'https') {
-    return res.redirect(['https://', req.get('Host'), req.url].join(''));
-  }
-  return next();
-})
+// app.use((req, res, next) => {
+//   if (req.headers['x-forwarded-proto'] !== 'https') {
+//     return res.redirect(['https://', req.get('Host'), req.url].join(''));
+//   }
+//   return next();
+// })
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
@@ -81,22 +82,56 @@ app.use(passport.session())
 passport.use(new FacebookStrategy({
     clientID: '378641464423407',
     clientSecret: '81259984488044e2aeb14dee8f5a4015',
-    callbackURL: "https://ulibs.herokuapp.com/auth/facebook/callback",
+    callbackURL: "https://localhost:3000/auth/facebook/callback",
     profileFields: ['id', 'displayName','photos','email'],
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log(profile);
+    console.log([ profile.id, profile.displayName, profile.emails[0].value, profile.photos[0].value]);
+    users.findOneAndUpdate(
+      {
+        ID: profile.id,
+        displayName: profile.displayName
+      },
+      {$set: {
+        username : profile.id,
+        displayName : profile.displayName,
+        email : profile.emails[0].value,
+        avatar_img : profile.photos[0].value
+      }},
+      {
+        new: true
+      }
+      ,
+      (err, user) => {
+        if(!user){
+          const userData = new users(user);
+                userData.username = profile.id;
+                userData.username = profile.id,
+                userData.displayName = profile.displayName,
+                userData.email = profile.emails[0].value,
+                userData.avatar_img = profile.photos[0].value
+                userData.save()
+                        .then(() => {
+                            return
+                        });
+        }
+        console.log(user);
+    })
+
+    // users.findOne({ID: profile.id, displayName: profile.displayName}, (err, user) => {
+    //   console.log(user);
+    // })
     return cb(null, profile);
   }
 ));
 route(app);
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
-// https.createServer(options,app).listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// })
-app.listen(port, () => {
+https.createServer(options,app).listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 })
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// })
 //Route init
 
 
