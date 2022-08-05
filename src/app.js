@@ -76,12 +76,12 @@ app.use(passport.session())
     });
     
   passport.deserializeUser(function(user, done) {
-    done(null, user);
+    return done(null, user);
   });
 passport.use(new FacebookStrategy({
     clientID: '378641464423407',
     clientSecret: '81259984488044e2aeb14dee8f5a4015',
-    callbackURL: "https://ulibs.herokuapp.com/auth/facbook/callback",
+    callbackURL: "https://ulibs.herokuapp.com/auth/facebook/callback",
     profileFields: ['id', 'displayName','photos','email'],
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -90,7 +90,7 @@ passport.use(new FacebookStrategy({
   }
 ));
 route(app);
-// app.use(enforce.HTTPS({ trustProtoHeader: true }))
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
 // https.createServer(options,app).listen(port, () => {
 //   console.log(`Example app listening on port ${port}`);
 // })

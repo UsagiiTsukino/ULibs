@@ -16,7 +16,7 @@ function route(app) {
 
   app.get('/auth/facebook',
   passport.authenticate('facebook',{
-    scope: ['user_birthday']
+    scope: ['email']
   }));
 
   app.get('/auth/facebook/callback',

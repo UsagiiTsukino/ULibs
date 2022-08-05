@@ -54,7 +54,7 @@ class LoginController {
         try {
             var token = req.cookies.token;
             var result = jwt.verify(token, 'mk')
-            if(result || req.cookies['connect.sid']){
+            if(result || req.user) {
                 next()
             }
         } catch (error) {
