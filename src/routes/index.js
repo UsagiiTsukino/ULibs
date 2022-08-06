@@ -11,7 +11,8 @@ const passport = require('passport');
 const { urlencoded } = require('body-parser');
 const req = require('express/lib/request');
 const jwt = require('jsonwebtoken');
-
+const LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
 function route(app) {
 
   app.get('/auth/facebook',
@@ -25,7 +26,10 @@ function route(app) {
       var token =  jwt.sign({
         _id : 'FacebookStrategy',
       }, 'mk')
-        res.cookie('token',token, { maxAge: 60 * 60 * 24}); 
+        res.cookie('token',token, { maxAge: 9600000});
+        // const userData = JSON.stringify([req.user.displayName, req.user.photos[0].value])
+        // localStorage.setItem('userData', userData);
+        // console.log(localStorage.getItem('userData'));
       res.redirect('/');
     });
 
