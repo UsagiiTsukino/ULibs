@@ -8,7 +8,7 @@ const User = new Schema ({
     address : {type : String, maxlength : 255},
     dob : {type : Date, maxlength : 255},
     gender : {type : String, maxlength : 5},
-    avatar_img : {type : String, maxlength : 255},
+    avatar_img : {type : String, maxlength : 500},
     phoneNumber : {type : String, maxlength : 255},
 },{
     timestamps : true,
