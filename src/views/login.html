@@ -58,7 +58,7 @@
     <div id="AppendHere"></div>
         <div class="form">
             <h1>Đăng nhập</h1>
-            <p><a href="#" target="_blank"> www.sitename.com</a></p>
+            <p><a href="#" target="_blank" class="site-name"> www.sitename.com</a></p>
 
 
             <div class="input-info">
@@ -102,11 +102,14 @@
         
             <div class="social-media">
                 <!--sign up by fb and tw-->
-                <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                <div class="rounded-social-buttons">
+                  <a class="circle-button facebook" href="/auth/facebook"></a>
+
+                </div>
             </div>
 
             <p class="forget-password">
-                Nếu bạn quê mật khẩu hẫy <a href="#">ấn ở đây</a>
+                Nếu bạn quên mật khẩu hẫy <a href="#">ấn ở đây</a>
             </p>
         </div>
       
@@ -132,6 +135,7 @@
         animate_Me("input[placeholder='Confirm Password']", ".fa-refresh");
     </script>
     <script>
+        localStorage.removeItem("userData");
         function setCookie(cname, cvalue, exdays) {
             const d = new Date();
             d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -153,7 +157,7 @@
               }
             return "";
           }
-
+          $(".form > p > a.site-name").text(location.origin);
       function login() {
         $.ajax({  
           url: '/login',

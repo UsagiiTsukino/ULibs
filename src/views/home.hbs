@@ -54,11 +54,11 @@
                     src="https://frontend.tikicdn.com/_desktop-next/static/img/homnay.svg" alt="flash deal"></div>
             <div>
                 <div class="count-down-time__flash-sale">
-                    <span>00</span>:
+                    <span id="hour">00</span>:
                     <span
-                        class="min">29
+                        id="minute">29
                         </span>:
-                    <span>58</span>
+                    <span id="second">58</span>
                 </div>
             </div>            
         </div>
@@ -72,6 +72,9 @@
                     <div class="product-saleOff-name">
                         {{this.bookName}}
                     </div>
+                            <div class="price-js">
+                                <p style="color: red;" class="product-price">{{this.price}}</p>
+                            </div>
                     <div class="d-flex justify-content-end">
                         <div class="rating">
                             <span class="small-text" style="color: black; font-size: 10px">

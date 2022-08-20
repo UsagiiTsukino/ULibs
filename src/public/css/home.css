@@ -587,6 +587,7 @@ form .error {
     bottom: 4px;
     left: 5px;
 }
+
 @keyframes flash-scale {
     50% {
         opacity: 0.3;

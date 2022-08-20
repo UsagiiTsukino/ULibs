@@ -8,7 +8,9 @@
         cartItem.map(item => {
                 totalPrice += parseInt(item.product.price)
                 console.log(totalPrice);
-                document.querySelector('.package-item-list').innerHTML += `
+                let list = document.querySelector('.package-item-list')
+                if(list){
+                list.innerHTML += `
                 <div>
                     <div class="package-item">
                         <div class="item-icon">
@@ -26,10 +28,10 @@
                 </div>
             </div>
                 `
-            })
+        }
             document.getElementById('quatity-total-payment').innerHTML = `${cartItem.length} sản phẩm`
             document.getElementById('temp-total--payment').innerHTML = `${formatPrice(totalPrice.toString())} đ`
             document.querySelector('.order-total__total').innerText = `${formatPrice((totalPrice - 7000).toString())} đ`
-    }
-
-
+    })
+}
+    

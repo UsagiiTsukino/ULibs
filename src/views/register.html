@@ -63,6 +63,7 @@
                     name="email"
                     id="email"
                 />
+                <input type="text" name="displayName" id="displayName" placeholder="Nhập tên hiển thị" />
                 <i class="fa fa-lock" style="margin-left: 24px"></i>
 
                 <input type="password" name="password" id="password" placeholder="Mật khẩu" />
@@ -135,6 +136,7 @@
           type: 'POST',
           data: {
             username : $('#username').val(),
+            displayName : $('#displayName').val(),
             email : $('#email').val(),
             password : $('#password').val(), 
           }
@@ -163,7 +165,7 @@
           Register();
         }
         else {
-          $('.alert').text('Nhập lại mật khẩu không đúng. Vui lòng thử lại');
+          $('.alert').text('Nhập lại mật khẩu không đúng. Vui lòng thử lại').css('display', 'block');
         }
       })
 

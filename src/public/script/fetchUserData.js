@@ -4,7 +4,7 @@
     fetch(url)
         .then (data => data.json())
         .then (data => {
-            var userInfo = [data.id, data.displayName, data.photos[0].value, data.emails[0].value];
+            var userInfo = [data.id, data.displayName, data.avatar_img, data.email];
             localStorage.setItem('userData', JSON.stringify(userInfo));
         })
 }

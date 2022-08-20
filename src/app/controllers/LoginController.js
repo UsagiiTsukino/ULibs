@@ -10,6 +10,8 @@ const siteController = require('./SiteController');
 class LoginController {
     show (req, res, next){
         var token = req.cookies.token;
+        res.clearCookie('connect.sid');
+        console.log(req.user);
         if (token) {
             res.clearCookie('token');
         }
@@ -54,7 +56,7 @@ class LoginController {
         try {
             var token = req.cookies.token;
             var result = jwt.verify(token, 'mk')
-            if(result || req.user) {
+            if(result) {
                 next()
             }
         } catch (error) {

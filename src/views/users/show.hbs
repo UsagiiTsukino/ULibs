@@ -84,9 +84,9 @@
                             <div class="form-info">
                                 <div class="form-avatar">
                                     <div class="avatar">
-                                        <div class="avatar-view">
-                                            <img src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2365951940284028&amp;height=200&amp;width=200&amp;ext=1571922513&amp;hash=AeTBZbZqoFnNHqZS"
-                                                alt="avatar" class="avatar-img">
+                                        <div class="avatar-view" style="width: 100%;">
+                                            <img src="{{user.avatar_img}}"
+                                                alt="avatar" class="avatar-img" style="width: 100%;">
                                             <div class="edit">
                                                 <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/edit.png"
                                                     class="edit_img" alt="">                              
@@ -112,7 +112,7 @@
                                         <div>
                                             <div class="text-input">
                                                 <input class="input " type="search" name="fullName" maxlength="128"
-                                                    placeholder="Thêm họ tên" value="Nguyễn Trung Hiếu">
+                                                    placeholder="Thêm họ tên" value="{{user.displayName}}">
                                             </div>
                                         </div>
                                     </div>
@@ -354,7 +354,7 @@
                                             alt="" class="icon">
                                         <div class="detail">
                                             <span>Số điện thoại</span>
-                                            <span>0818822203</span>
+                                            <span>{{user.phoneNumber}}</span>
                                         </div>
                                     </div>
                                     <div class="status">
@@ -367,7 +367,7 @@
                                             alt="" class="icon">
                                         <div class="detail">
                                             <span>Email</span>
-                                            <span>Chưa cập nhật email</span>
+                                            <span>{{user.email}}</span>
                                         </div>
                                     </div>
                                     <div class="status">

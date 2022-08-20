@@ -11,6 +11,7 @@ const passport = require('passport');
 const { urlencoded } = require('body-parser');
 const req = require('express/lib/request');
 const jwt = require('jsonwebtoken');
+const users = require('../app/models/User');
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
 function route(app) {
@@ -23,14 +24,18 @@ function route(app) {
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
-      var token =  jwt.sign({
-        _id : 'FacebookStrategy',
-      }, 'mk')
-        res.cookie('token',token, { maxAge: 9600000});
-        // const userData = JSON.stringify([req.user.displayName, req.user.photos[0].value])
-        // localStorage.setItem('userData', userData);
-        // console.log(localStorage.getItem('userData'));
-      res.redirect('/');
+        users.findOne({
+          ID : req.user.id,
+          email : req.user.emails[0].value,
+        })
+        .then(user => {
+            var token =  jwt.sign({
+              _id : user._id,
+            }, 'mk')
+            res.cookie('token',token, { maxAge: 9600000});
+            res.redirect('/');
+        })
+      
     });
 
     app.use('/books', LoginController.checkAuth, booksRouter)
@@ -42,7 +47,39 @@ function route(app) {
 
 
     app.get('/api/users', (req, res, next) => {
-      res.json(req.user);
+      if(req.user) res.json(
+        {
+          "displayName": req.user.displayName,
+          "avatar_img" : req.user.photos[0].value,
+          "email" : req.user.emails[0].value
+        }
+      );
+      else {
+        var token = req.cookies.token;
+        var result = jwt.verify(token, 'mk')
+        users.findOne({_id: result._id})
+             .then (data => res.json({
+                "displayName": data.displayName,
+                "avatar_img" : data.avatar_img,
+                "email" : data.email
+             }))
+             .catch (err => res.json(err))
+      }
+    });
+    
+    app.get('/api/users/all', (req, res, next) => {
+      if(req.user) res.json(req.user);
+      else {
+        var token = req.cookies.token;
+        var result = jwt.verify(token, 'mk')
+        users.updateMany({
+          phoneNumber : null,
+        }, {
+          phoneNumber : "Bạn chưa liên kết số điện thoại"
+        })
+             .then (data => res.json(data))
+             .catch (err => res.json(err))
+      }
     });
     app.use('/vietnam_books',siteController.showVietNamBooks);
     app.use('/english_books',siteController.showEnglishBooks);

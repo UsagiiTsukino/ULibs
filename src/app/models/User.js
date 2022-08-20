@@ -9,6 +9,7 @@ const User = new Schema ({
     dob : {type : Date, maxlength : 255},
     gender : {type : String, maxlength : 5},
     avatar_img : {type : String, maxlength : 255},
+    phoneNumber : {type : String, maxlength : 255},
 },{
     timestamps : true,
     collection : 'users',
