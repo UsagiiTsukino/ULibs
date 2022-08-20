@@ -24,18 +24,50 @@ function route(app) {
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
-        users.findOne({
-          ID : req.user.id,
-          email : req.user.emails[0].value,
-        })
-        .then(user => {
-            var token =  jwt.sign({
-              _id : user._id,
-            }, 'mk')
-            res.cookie('token',token, { maxAge: 9600000});
-            res.redirect('/');
-        })
-      
+      const profile = req.user
+      users.findOneAndUpdate(
+        {
+          ID: profile.id,
+          displayName: profile.displayName
+        },
+        {$set: {
+          username : profile.id,
+          displayName : profile.displayName,
+          email : profile.emails[0].value,
+          avatar_img : profile.photos[0].value
+        }},
+        {
+          new: true
+        }
+        ,
+        (err, user) => {
+          if(!user){
+            const userData = new users(user);
+                  userData.ID = profile.id;
+                  userData.username = profile.id,
+                  userData.displayName = profile.displayName,
+                  userData.email = profile.emails[0].value,
+                  userData.avatar_img = profile.photos[0].value
+                  userData.save()
+                          .then(() => {
+                              return
+                          });
+                  var token =  jwt.sign({
+                    _id : profile._id,
+                  }, 'mk')
+                  res.cookie('token',token, { maxAge: 9600000});
+                  res.redirect('/');
+                
+          }
+          else {
+              var token =  jwt.sign({
+                _id : profile._id,
+              }, 'mk')
+              res.cookie('token',token, { maxAge: 9600000});
+              res.redirect('/');
+          }
+          console.log(user);
+      })
     });
 
     app.use('/books', LoginController.checkAuth, booksRouter)
