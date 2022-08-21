@@ -82,7 +82,7 @@ app.use(passport.session())
 passport.use(new FacebookStrategy({
     clientID: '378641464423407',
     clientSecret: '81259984488044e2aeb14dee8f5a4015',
-    callbackURL: `https://localhost:3000/auth/facebook/callback`,
+    callbackURL: `https://ulibs.herokuapp.com/auth/facebook/callback`,
     profileFields: ['id', 'displayName','photos','email'],
   },
   function(accessToken, refreshToken, profile, cb) {
