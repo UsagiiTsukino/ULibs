@@ -1,11 +1,14 @@
 const Book = require('../models/Book');
 const { mutipleMongooseToObject } = require('../../util/mongoose');
-
+const jwt = require('jsonwebtoken');
 class SiteController {
     // [GET] /
     index(req, res, next) {
         Book.find({})
-            .then((books) => {  
+            .then((books) => {
+                var token = req.cookies.token;
+                var result = jwt.verify(token, 'mk')
+                console.log(result);
                 res.render('home',{
                     books: mutipleMongooseToObject(books),
                 })

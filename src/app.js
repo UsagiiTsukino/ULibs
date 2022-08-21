@@ -82,45 +82,10 @@ app.use(passport.session())
 passport.use(new FacebookStrategy({
     clientID: '378641464423407',
     clientSecret: '81259984488044e2aeb14dee8f5a4015',
-    callbackURL: `https://ulibs.herokuapp.com/auth/facebook/callback`,
+    callbackURL: `https://localhost:3000/auth/facebook/callback`,
     profileFields: ['id', 'displayName','photos','email'],
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log([ profile.id, profile.displayName, profile.emails[0].value, profile.photos[0].value]);
-    users.findOneAndUpdate(
-      {
-        ID: profile.id,
-        displayName: profile.displayName
-      },
-      {$set: {
-        username : profile.id,
-        displayName : profile.displayName,
-        email : profile.emails[0].value,
-        avatar_img : profile.photos[0].value
-      }},
-      {
-        new: true
-      }
-      ,
-      (err, user) => {
-        if(!user){
-          const userData = new users(user);
-                userData.username = profile.id;
-                userData.username = profile.id,
-                userData.displayName = profile.displayName,
-                userData.email = profile.emails[0].value,
-                userData.avatar_img = profile.photos[0].value
-                userData.save()
-                        .then(() => {
-                            return
-                        });
-        }
-        console.log(user);
-    })
-
-    // users.findOne({ID: profile.id, displayName: profile.displayName}, (err, user) => {
-    //   console.log(user);
-    // })
     return cb(null, profile);
   }
 ));

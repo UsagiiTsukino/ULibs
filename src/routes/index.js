@@ -43,30 +43,31 @@ function route(app) {
         (err, user) => {
           if(!user){
             const userData = new users(user);
+                  let id = userData._id;
                   userData.ID = profile.id;
                   userData.username = profile.id,
                   userData.displayName = profile.displayName,
                   userData.email = profile.emails[0].value,
                   userData.avatar_img = profile.photos[0].value
                   userData.save()
-                          .then(() => {
-                              return
+                          .then((err, result) => {
+                             return;
                           });
                   var token =  jwt.sign({
-                    _id : profile._id,
+                    _id : id,
                   }, 'mk')
                   res.cookie('token',token, { maxAge: 9600000});
                   res.redirect('/');
+                  
                 
           }
           else {
               var token =  jwt.sign({
-                _id : profile._id,
+                _id : user._id,
               }, 'mk')
               res.cookie('token',token, { maxAge: 9600000});
               res.redirect('/');
           }
-          console.log(user);
       })
     });
 

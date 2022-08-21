@@ -18,7 +18,6 @@ class MeController {
             }
         } catch (error) {
             console.log(error);
-            return res.redirect('/login')
         }
     }
     cart (req, res, next){
