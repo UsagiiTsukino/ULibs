@@ -12,13 +12,23 @@ const { urlencoded } = require('body-parser');
 const req = require('express/lib/request');
 const jwt = require('jsonwebtoken');
 const users = require('../app/models/User');
+const mailer = require('../util/mailler');
+const otpGenerator = require('otp-generator');
+const mlt = require('../util/otp.mailler-template');
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
+
+var rn = require('random-number');
+var options = {
+  min:  100000
+, max:  999999
+, integer: true
+}
 function route(app) {
 
   app.get('/auth/facebook',
   passport.authenticate('facebook',{
-    scope: ['email']
+    scope: ['email','user_birthday','user_gender']
   }));
 
   app.get('/auth/facebook/callback',
@@ -103,26 +113,33 @@ function route(app) {
     app.get('/api/users/all', (req, res, next) => {
       if(req.user) res.json(req.user);
       else {
-        var token = req.cookies.token;
-        var result = jwt.verify(token, 'mk')
-        users.updateMany({
-          phoneNumber : null,
-        }, {
-          phoneNumber : "Bạn chưa liên kết số điện thoại"
-        })
-             .then (data => res.json(data))
-             .catch (err => res.json(err))
+        users.find()
+              .then(users => res.json(users))
+              .catch(err => res.json(err));
       }
     });
+
+
     app.use('/vietnam_books',siteController.showVietNamBooks);
     app.use('/english_books',siteController.showEnglishBooks);
     app.use('/abilities_books',siteController.showAbilitiesBooks)
     app.use('/detective_books',siteController.showDetectiveBooks);
     app.use('/comic_books',siteController.showComicBooks);
 
+    app.get('/sendmail', (req, res, next) => {
+        let OTP = rn(options)
+        mailer.sendMail(
+          'hieunt243@gmail.com',
+          'Xac thuc tai khoan',
+          mlt.mailContent(OTP),
+        )
+
+        res.json({OTP})
+    })
+
     app.get('*', function(req, res){
         res.status(404).render('404');  
-      });
+    });
 }
 
 module.exports = route;

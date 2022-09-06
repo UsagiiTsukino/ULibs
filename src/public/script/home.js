@@ -13,7 +13,7 @@ jQuery(document).ready(($) =>{
 	updateTotalPrice();
 	updateQuantityProductInCart();
 	initBegin();
-
+	initDatePicker();
 
 	function initPreloader() {
 
@@ -389,4 +389,10 @@ jQuery(document).ready(($) =>{
     		}
     	}
     }
+	function initDatePicker(){
+			$( "#datepicker" ).datepicker({
+				dateFormat: "dd-mm-yy"
+				,	duration: "fast"
+			});
+	}
 })

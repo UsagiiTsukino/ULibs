@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken');
 class SiteController {
     // [GET] /
     index(req, res, next) {
-        Book.find({})
+        Book.find({}).sort({
+            createdAt : -1,
+        })
             .then((books) => {
                 var token = req.cookies.token;
                 var result = jwt.verify(token, 'mk')

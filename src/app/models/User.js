@@ -6,10 +6,11 @@ const User = new Schema ({
     email : {type : String, maxlength : 255},
     displayName : {type : String, maxlength : 255},
     address : {type : String, maxlength : 255},
-    dob : {type : Date, maxlength : 255},
+    dob : {type : String, maxlength : 255},
     gender : {type : String, maxlength : 5},
     avatar_img : {type : String, maxlength : 500},
     phoneNumber : {type : String, maxlength : 255},
+    role : {type : String, maxlength : 100},
 },{
     timestamps : true,
     collection : 'users',

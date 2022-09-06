@@ -20,6 +20,31 @@ class MeController {
             console.log(error);
         }
     }
+    update (req, res, next){
+        var displayName = req.body.displayName;
+        var dob = req.body.dob;
+        var gender = req.body.gender;
+        var id = req.body.id;
+        var address = req.body.address;
+
+        User.updateOne(
+            {
+                _id : id
+            },
+            {
+                displayName,
+                dob,
+                gender,
+                address,
+            })
+            .then(() => {
+                res.json({
+                    success : true,
+            })})
+            .catch(err => {
+                console.log(err);
+            });
+    }
     cart (req, res, next){
         res.render('cart')
     }
