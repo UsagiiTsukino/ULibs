@@ -54,8 +54,7 @@
   </head>
 
   <body>
-    <div id="fb-root"></div>
-    <div id="AppendHere"></div>
+      <div class="form-section">
         <div class="form">
             <h1>Đăng nhập</h1>
             <p><a href="#" target="_blank" class="site-name"> www.sitename.com</a></p>
@@ -71,7 +70,7 @@
                     type="email"
                     placeholder="Email"
                     required=""
-                    autocomplete="off"
+                    autocomplete="on"
                     validate=""
                     name="email"
                     id="email"
@@ -104,15 +103,16 @@
                 <!--sign up by fb and tw-->
                 <div class="rounded-social-buttons">
                   <a class="circle-button facebook" href="/auth/facebook"></a>
-
                 </div>
             </div>
-
             <p class="forget-password">
-                Nếu bạn quên mật khẩu hẫy <a href="#">ấn ở đây</a>
+                Nếu bạn quên mật khẩu hẫy <a href="/forgetPassword">ấn ở đây</a>
             </p>
         </div>
-      
+      </div>
+      <!-- <div class="forget-password-form">
+
+      </div> -->
     <!--End login form-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>

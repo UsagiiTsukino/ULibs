@@ -1,5 +1,6 @@
 exports.mailContent = (OTP) => {
-    return `<!DOCTYPE html>
+    return `
+    <!DOCTYPE html>
     <html lang="en" class="miro" style="background-color:#f3f4f8;font-size:0;line-height:0">
       <head xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" style="font-family:Helvetica,Arial,sans-serif">
         <meta charset="UTF-8" style="font-family:Helvetica,Arial,sans-serif">

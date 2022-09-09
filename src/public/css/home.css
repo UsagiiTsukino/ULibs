@@ -596,3 +596,36 @@ div#slider-range > span {
         transform: scale(1.3);
     }
 }
+
+/* Scroll to top button */
+
+#scrollToTop {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    box-shadow: 0 0 14px -5px rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    font-family: "Arial";
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -12rem;
+    transition: margin-bottom 0.2s;
+  }
+  #scrollToTop.active {
+    margin-bottom: 0;
+  }
+  #scrollToTop:hover {
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes rotate {
+    to {
+      transform: rotate(2520deg);
+    }
+  }
+  

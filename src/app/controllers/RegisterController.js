@@ -17,16 +17,19 @@ class RegisterController {
         res.sendFile(path.join(__dirname, '../../views/register.html'));
     }
    register(req, res, next){
-        const user = new users(req.body);
+        const user = new users({
+            ...req.body,
+            avatar_img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU',
+            role : 'member',
+            phoneNumber : "Bạn chưa liên kết số điện thoại"
+        });
         bcrypt.hash(user.password, 10, function(err, hash){
             if (err) {
                 console.log(err);
                 return;
             }
             user.password = hash;
-            console.log(hash);
-            console.log(user.password);
-                    user
+                user
             .save()
             .then(() => res.redirect('/login'))
             .catch( function () { 

@@ -4,6 +4,7 @@ const usersRouter = require('./users');
 const siteRouter = require('./site');
 const meRouter = require('./me');
 const loginRouter = require('./login');
+const forgotPasswordRouter = require('./forgotPassword');
 const siteController = require('../app/controllers/SiteController');
 const LoginController = require('../app/controllers/LoginController.js');
 const registerRouter = require('./register');
@@ -85,9 +86,9 @@ function route(app) {
     app.use('/users', LoginController.checkAuth, usersRouter)
     app.use('/login', loginRouter);
     app.use('/register', registerRouter);
+    app.use('/forgetPassword', forgotPasswordRouter);
     app.use('/', LoginController.checkAuth, siteRouter);
     app.use('/me', LoginController.checkAuth, meRouter);
-
 
     app.get('/api/users', (req, res, next) => {
       if(req.user) res.json(

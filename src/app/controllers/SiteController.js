@@ -73,6 +73,10 @@ class SiteController {
             })
             .catch(next);
     }
+    showForgetPassword(req, res, next) {
+        res.sendFile(path.join(__dirname, '../../views/forgot_password.html'));
+    }
+    
 }
 
 module.exports = new SiteController();

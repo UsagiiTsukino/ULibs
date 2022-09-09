@@ -43,48 +43,55 @@
 
   <body>
     <div id="AppendHere"></div>
-        <div class="form">
-            <h1>Đăng kí</h1>
-            <p><a href="#" target="_blank"> www.ULibs.com</a></p>
+        <div class="form-section">
 
+          <div class="form">
+              <h1>Đăng kí</h1>
+              <p><a href="#" target="_blank"> www.ULibs.com</a></p>
+  
+  
+              <div class="input-info">
 
-            <div class="input-info">
-        
-                <i class="fa fa-user" style="margin-left: 24px"></i>
-
-                <input type="text" name="username" id="username" placeholder="Tên đăng nhập" />
-                <i class="fa fa-envelope" style="margin-left: 24px"></i>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    required=""
-                    autocomplete="off"
-                    validate=""
-                    name="email"
-                    id="email"
-                />
-                <input type="text" name="displayName" id="displayName" placeholder="Nhập tên hiển thị" />
-                <i class="fa fa-lock" style="margin-left: 24px"></i>
-
-                <input type="password" name="password" id="password" placeholder="Mật khẩu" />
-
-                <input type="password" name="re-password" id="re-password" placeholder="Nhập lại mật khẩu" />
-            </div>
-            <div class="alert">Tài khoản đã có người sử dụng . Vui lòng thử lại</div>
-            <div class="log-sign">
-
-                <a href="/login">
-                  <button class="login">
-                  <i class="fa fa-mail-forward (alias)"></i> Log In
-                  </button>                  
-                </a>
-
-                <a href="#">                <!--the link to the sign up page-->
-                <button class="signup">
-                    <i class="fa fa-plus"></i> Đăng kí
-                </button>
-                </a>
-            </div>
+                  <div class="username-section">
+                    <i class="fa fa-user" style="margin-left: 24px"></i>
+                    <input type="text" name="username" id="username" placeholder="Tên đăng nhập" />
+                    <span class="description">Tài khoản từ 8 đến 16 kí tự, không được chứa kí tự đặc biệt</span>
+                  </div>
+                  <div class="email-section">
+                  <i class="fa fa-envelope" style="margin-left: 24px"></i>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        required=""
+                        autocomplete="off"
+                        validate=""
+                        name="email"
+                        id="email"
+                    />
+                  </div>
+                  <input type="text" name="displayName" id="displayName" placeholder="Nhập tên hiển thị" />
+                  <i class="fa fa-lock" style="margin-left: 24px"></i>
+  
+                  <input type="password" name="password" id="password" placeholder="Mật khẩu" />
+  
+                  <input type="password" name="re-password" id="re-password" placeholder="Nhập lại mật khẩu" />
+              </div>
+              <div class="alert">Tài khoản đã có người sử dụng . Vui lòng thử lại</div>
+              <div class="log-sign">
+  
+                  <a href="/login">
+                    <button class="login">
+                    <i class="fa fa-mail-forward (alias)"></i> Log In
+                    </button>                  
+                  </a>
+  
+                  <a href="#">                <!--the link to the sign up page-->
+                  <button class="signup">
+                      <i class="fa fa-plus"></i> Đăng kí
+                  </button>
+                  </a>
+              </div>
+          </div>
         </div>
       
     <!--End Register form-->
@@ -115,6 +122,7 @@
             let expires = "expires="+ d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
+
         function getCookie(cname) {
               let name = cname + "=";
               let decodedCookie = decodeURIComponent(document.cookie);
@@ -130,6 +138,18 @@
               }
             return "";
           }
+        function isUserNameValid(username) {
+          /* 
+            Usernames can only have: 
+            - Lowercase Letters (a-z) 
+            - Numbers (0-9)
+            - Dots (.)
+            - Underscores (_)
+          */
+          const res = /^[a-z0-9_\.]+$/.exec(username);
+          const valid = !!res && username.length >= 8;
+          return valid;
+        }
         function Register() {
         $.ajax({  
           url: '/register',
@@ -143,7 +163,7 @@
         })
           .then(data => {
             if (data == 'user got duplicated') {
-              $('.alert').css('display', 'block').text('Tài khoản đã có người sử dụng');
+              $('.alert').css('display', 'block').text('Tài khoản hoặc email đã có người sử dụng');
             }
             else if (data != 'that bai') {
               $('.alert').css({
