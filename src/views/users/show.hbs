@@ -84,9 +84,9 @@
                             <div class="form-info">
                                 <div class="form-avatar">
                                     <div class="avatar">
-                                        <div class="avatar-view" style="width: 100%;">
+                                        <div class="avatar-view" style="width: 100%;height: 100%">
                                             <img src="{{user.avatar_img}}"
-                                                alt="avatar" class="avatar-img" style="width: 100%;">
+                                                alt="avatar" class="avatar-img" style="width: 100%;height: 100%">
                                             <div class="edit">
                                                 <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/edit.png"
                                                     class="edit_img" alt="">                              
@@ -129,7 +129,7 @@
                             </div>
                             <div class="form-control-cus">
                                     <label for="datepicker" class="label-input">Ngày sinh</label>
-                                    <input type="text" id="datepicker" autocomplete="off" value="{{user.dob}}">
+                                    <input type="text" id="datepicker" autocomplete="off" value="{{#if user.dob}}{{user.dob}}{{else}}01-01-2001{{/if}}">
                             </div>
                             <div class="form-control-cus">
                                 <label class="label-input" data="{{user.gender}}" id="gender-js">Giới tính</label>
