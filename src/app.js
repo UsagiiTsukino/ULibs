@@ -92,7 +92,7 @@ passport.use(new FacebookStrategy({
 
 //Route init
 route(app);
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+// app.use(enforce.HTTPS({ trustProtoHeader: true }))
 // https.createServer(options,app).listen(port, () => {
 //   console.log(`Example app listening on port ${port}`);
 // })

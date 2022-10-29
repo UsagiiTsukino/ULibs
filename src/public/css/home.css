@@ -94,8 +94,15 @@ form .error {
     width: 150px;
     height: 150px;
 }
+.banner-header{
+    text-align: center;
+    background-color: #c6ecc3;
+}
+.home-banner {
+    margin-top: 16px;
+}
 .navigation {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -192,7 +199,6 @@ form .error {
     margin-left: -14px;
 }
 .mapper{
-    margin-top: 150px;
     height: 40px;
     line-height: 16px;
     font-size: 14px;
@@ -213,10 +219,14 @@ form .error {
     padding-left: 12px;
 }
 .slide{
-    
+    margin-top: 8px;
+}
+
+.flash-ads-item{
+    margin-top: 8px;
 }
 .carousel-item > img {
-    height: 400px;
+    height: 347px;
 }
 .col-left {
     padding-right: 0;
