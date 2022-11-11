@@ -15,6 +15,7 @@ jQuery(document).ready(($) =>{
 	initBegin();
 	initDatePicker();
 	initScrollToTopButton();
+	uploadAvatar();
 
 	function initPreloader() {
 
@@ -412,5 +413,8 @@ jQuery(document).ready(($) =>{
 		  $('#scrollToTop').on('click',function() {
 			$("html, body").animate({ scrollTop: 0 }, 250);
 		  })
+	}
+	function uploadAvatar() {
+
 	}
 })

@@ -7,10 +7,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
-  /*Start.form style*/
+  /*Start login form style*/
   .form-section{
     width: calc(100% - 25%);
     height: 85vh;
@@ -19,209 +19,124 @@
     box-shadow: 0 0 10px 10px rgb(0 0 0 / 25%);
     border-radius: 2rem;
   }
- .form {
-    height: 550px;
-    width: 330px;
-    margin: 0 auto;
-    border-radius: 8px;
+
+  .login-form {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+
   }
 
-  button {
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.58);
+  .row > * {
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  /*End.form style*/
-
-  /*****************************************/
-
-  /*Start header*/
- .form h1 {
+  .login-form > .section{
+    width: 100%;
+    height: 100%;
+    padding: 48px;
+    padding-top: 16px;
+    padding-bottom: 0;
+  }
+  .section .logo-img {
+    width: 148px;
+    height: 148px;
+  }
+  .login-title{
+    width: 148px;
+    margin-right: 32px;
+  }
+  .login-title h5 {
+    font-size: 1.56rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 110% !important;
     text-align: center;
-    padding-top: 64px;
-    color: #fff;
+
   }
-
- .form p {
-    color: #828999;
-    font-size: 11px;
-    text-align: center;
-    margin-top: -19px;
+  .section-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-
-  /*The link of the site in the p tag ***/
- .form p > a {
-    color: #828999;
-    text-decoration: none;
-    transition: 0.3s;
+  /* Text Filed style */
+  .material-textfield {
+    position: relative;
+    margin: 16px;
+    margin-top: 0;
   }
-
- .form p > a:hover {
-    color: #1da1f2;
-  }
-
- .form p > a:active {
-    color: #1da1f2;
-  }
-
-  /*End login header*/
-
-  /* Start the input-info style*/
-  .input-info {
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
-
-  /*the containe div style*/
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    border: 1px solid #828999;
-    padding: 15px 20px;
-    border-radius: 5px;
-    width: 90%;
-    background: none;
-    margin: 5px 5px 5px 17px;
-    outline: none;
-    transition: 0.3s;
-    text-indent: 15px;
-    overflow: hidden;
-    color: #fff;
-  }
-
-  .fa-refresh,
-  .fa-lock,
-  .fa-envelope,
-  .fa-user-plus,
-  .fa-user {
+  
+  label {
     position: absolute;
-    margin-top: 20px;
-    margin-left: 24px;
-    color: #828999;
-    display: block;
+    font-size: 1rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: gray;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
   }
-
-  .input-info input:hover {
-    background: #435688;
-    color: #fff;
-  }
-
-  .input-info input[type="checkbox"] {
-    margin-left: 17px;
-    cursor: pointer;
-    margin-top: 7px;
-  }
-
-  .input-info span {
-    color: #fff;
-    font-size: 11px;
-  }
-
-  .input-info span > a {
-    color: #1da1f2;
-  }
-
-  .input-info span > a:hover {
-    color: #fff;
-  }
- .content-right {
-    background: #fff;
- }
-  /*End the input-info style*/
-
-  /*start the tow button login and sign up*/
-  .log-sign {
-    text-align: center;
-  }
-
-  /*the containe div style*/
-  .signup,
-  .login {
-    /*button login style*/
-    padding: 10px;
-    margin-top: 16px;
-    background: #435688;
-    color: #fff;
-    width: 103px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.5s;
-    border: 1px solid #435688;
+  input {
+    font-size: 1rem;
     outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;  
+    padding: 0.9rem 0.7rem;
+    color: gray;
+    transition: 0.1s ease-out;
+  }
+  input:focus {
+    border-color: #6200EE;  
+  }
+  input:focus + label {
+    color: #6200EE;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+  }
+  input:not(:placeholder-shown) + label {
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+  }
+  .text-field-form input {
+    width: 100%;
   }
 
-  .signup {
-    /*button signup style*/
-    background: #9e3434;
-    border: 1px solid #9e3434;
-  }
+  /* Button Submit Style */
+  .submit-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-  .log-sign .signup > a {
+  }
+  .mobile-button__submit{
+    background-color: #fff;
+    background-size: 1.571150680831962rem;
+    width: 4.489001945234176rem;
+    border-radius: 1.5rem;
+    height: 4.489001945234176rem;
+    font-size: 1.246944984787271rem;
+    border: 1px solid #6200EE;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+  }
+  .mobile-button__submit > i {
+    color: #6200EE;
+    font-size: 28px;
+  }
+  .mobile-button__submit:hover {
+    background-color: #6200EE;
+  }
+  .mobile-button__submit:hover i{
     color: #fff;
-    text-decoration: none;
-  }
-
-  /*the signup link style*/
-  .log-sign button:hover {
-    background: none;
-    border: 1px solid #828999;
-    color: #fff;
-  }
-
-  .send {
-    /*sugn up button at the signup.html page*/
-    padding: 10px;
-    margin-top: 16px;
-    background: #435688;
-    color: #fff;
-    width: 103px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.5s;
-    border: 1px solid #435688;
-    outline: none;
-    margin-left: 32%;
-  }
-
-  /*facebook social-media button style*/
-  .social-media {
-    margin-bottom: 35px;
-    margin-top: 35px;
-  }
-
-  .social-media .btn1 {
-    /*facebook button*/
-    border: 0;
-    background: #3b5998;
-    color: #fff;
-    padding: 15px;
-    width: 90%;
-    margin-left: 16px;
-    margin-top: 14px;
-    border-radius: 5px;
-  }
-
-  .social-media .btn2 {
-    /*twitter button*/
-    border: 0;
-    padding: 15px;
-    margin-top: 11px;
-    width: 90%;
-    margin-left: 16px;
-    border-radius: 5px;
-    background: #1da1f2;
-    color: #fff;
-  }
-
-  .social-media button > a {
-    color: #fff;
-    text-decoration: none;
-  }
-  span.description{
-    background-color: rgba(0, 0, 0, 0.3);
-    font-size: 11px;
-    color: #fff;
-    margin-left: 16px;
-    display: none;
   }
   /************/
 
@@ -246,13 +161,13 @@
     margin-right: 8px;
   }
  .alert {
-  display: none;
+  visibility: hidden;
   font-size: 13px;
   color: red;
-  background-color: rgba(0, 0, 0, 0.58);
   padding: 4px;
   font-weight: bold;
   font-style: italic;
+  margin: 0 16px;
  }
  .rounded-social-buttons {
   text-align: center;
@@ -305,4 +220,115 @@
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
+}
+/* Login Slide */
+
+.login-banner {
+  height: 100%;
+}
+
+.login-slider-img {
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+  
+
+
+#slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+#slideshow > div {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+/* Social Login Button Style */
+
+.social-media {
+  margin-top: 35px;
+}
+
+
+.social-media button > a {
+  color: #fff;
+  text-decoration: none;
+}
+span.description{
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 11px;
+  color: #fff;
+  margin-left: 16px;
+  display: none;
+}
+.rounded-social-buttons .circle-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 3.125rem;
+  height: 3.125rem;
+  border: 0.125rem solid transparent;
+  padding: 0;
+  text-decoration: none;
+  text-align: center;
+  color: #fefefe;
+  font-size: 1.5625rem;
+  font-weight: normal;
+  line-height: 2em;
+  border-radius: 1.6875rem;
+  transition: 1s ease all;
+  margin-right: 0.25rem;
+}
+.rounded-social-buttons .circle-button:hover, .rounded-social-buttons .circle-button:focus {
+  transform: rotate(360deg);
+}
+.rounded-social-buttons .circle-button.facebook {
+  background: #3b5998;
+}
+.rounded-social-buttons .circle-button.facebook:before {
+  font-family: "FontAwesome";
+  content: "\f09a";
+}
+.rounded-social-buttons .circle-button.facebook:hover, .rounded-social-buttons .circle-button.facebook:focus {
+  color: #3b5998;
+  background: #fefefe;
+  border-color: #3b5998;
+}
+.rounded-social-buttons .circle-button.tumblr:hover, .rounded-social-buttons .circle-button.tumblr:focus {
+  color: #32506d;
+  background: #fefefe;
+  border-color: #32506d;
+}
+/* Login Option Style */
+
+.login-option{
+    display: flex;
+    justify-content: space-between;
+}
+.option a{
+  text-decoration: none;
+  color: #666;
+  text-transform: uppercase;
+  font-size: 0.638435832211083rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 110%;
+}
+.to-register:hover > a,
+.to-forgot-password:hover > a
+{
+  font-style: italic;
+  color: #000;
+  text-transform: uppercase;
 }

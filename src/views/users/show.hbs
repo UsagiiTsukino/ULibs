@@ -86,16 +86,17 @@
                                     <div class="avatar">
                                         <div class="avatar-view" style="width: 100%;height: 100%">
                                             <img src="{{user.avatar_img}}"
-                                                alt="avatar" class="avatar-img" style="width: 100%;height: 100%">
+                                                alt="avatar" class="avatar-img" style="width: 100%;height: 100%" id="avatar-img">
                                             <div class="edit">
                                                 <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/edit.png"
                                                     class="edit_img" alt="">                              
                                             </div>
                                             <div class="file-chooser">
                                                     <ul>
-                                                        <li>
+                                                        <li class="upload-avatar-btn">
                                                             <i class="fa-solid fa-upload"></i>
-                                                           <p>Tải ảnh đại diện lên</p>  
+                                                           <p>Tải ảnh đại diện lên</p>
+                                                           <input id="actual-upload" type="file" onchange="readURL(this)">  
                                                         </li>
                                                         <li>
                                                             <i class="fa-solid fa-trash-can"></i>
@@ -241,6 +242,26 @@
     </div>
 </div>
 <div id="toast"></div>
+<script>
+    document.querySelector(".upload-avatar-btn").addEventListener("click", function() {
+        document.querySelector("#actual-upload").click();
+    });
+
+    function readURL(input) {
+        console.log(1)
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#avatar-img')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+</script>
 <script>
     document.title = `Thông tin cá nhân - ULibs`
     var gender = $('#gender-js').attr('data');
