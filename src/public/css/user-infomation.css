@@ -218,6 +218,7 @@ input.with-icon-right{
     font-size: 14px;
     background-color: rgb(11, 116, 229);
     cursor: pointer;
+    margin-left: 5rem;
 }
 .cube{
     background-color: rgb(255, 255, 255);
@@ -434,4 +435,9 @@ table {
 }
 .ui-datepicker-week-end > tbody > tr > td > a.ui-state-default{
     background-color: #dddddd;
+}
+/* Updating Status */
+.updating-status{
+    width: 40px;
+    height: 40px;
 }

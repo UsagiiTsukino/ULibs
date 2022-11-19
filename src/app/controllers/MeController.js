@@ -2,6 +2,7 @@ const Book = require('../models/Book');
 const User = require('../models/User');
 const { mongooseToObject } = require('../../util/mongoose');
 const jwt = require('jsonwebtoken');
+const fileUploader = require('../../config/cloudinary.config');
 class MeController {
     show (req, res, next){
         try {
@@ -21,12 +22,18 @@ class MeController {
         }
     }
     update (req, res, next){
+
         var displayName = req.body.displayName;
         var dob = req.body.dob;
         var gender = req.body.gender;
         var id = req.body.id;
         var address = req.body.address;
+        var avatar_img = req.file.path;
 
+        if (!req.file) {
+            console.log("No File");
+            return;
+          }
         User.updateOne(
             {
                 _id : id
@@ -36,6 +43,7 @@ class MeController {
                 dob,
                 gender,
                 address,
+                // avatar_img,
             })
             .then(() => {
                 res.json({

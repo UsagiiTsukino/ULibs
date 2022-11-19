@@ -638,4 +638,21 @@ div#slider-range > span {
       transform: rotate(2520deg);
     }
   }
-  
+  /* Navbar Responsive style */
+
+  .navbar-responsive {
+    
+}
+
+  .navbar-responsive.navigation {
+
+  }
+
+  .navbar-responsive .img-logo {
+    width: 90px;
+    height: 60px;
+}
+
+.navbar-responsive .middle-header {
+    margin-top: 0;
+}

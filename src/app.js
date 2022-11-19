@@ -26,12 +26,12 @@ const options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 };
-app.use((req, res, next) => {
-  if (req.headers['x-forwarded-proto'] !== 'https') {
-    return res.redirect(['https://', req.get('Host'), req.url].join(''));
-  }
-  return next();
-})
+// app.use((req, res, next) => {
+//   if (req.headers['x-forwarded-proto'] !== 'https') {
+//     return res.redirect(['https://', req.get('Host'), req.url].join(''));
+//   }
+//   return next();
+// })
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
@@ -92,12 +92,12 @@ passport.use(new FacebookStrategy({
 
 //Route init
 route(app);
-// app.use(enforce.HTTPS({ trustProtoHeader: true }))
-// https.createServer(options,app).listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// })
-app.listen(port, () => {
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
+https.createServer(options,app).listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 })
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// })
 
 

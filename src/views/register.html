@@ -4,36 +4,28 @@
     <meta charset="UTF-8" />
     <title>ULibs - Đăng kí thành viên</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="../public/img/logo/logo.jpg">
+    <meta
+      name="description"
+      content="Đăng kí và trở thành thành viên của ULibs - Thư viện số để tìm kiếm và mua những cuốn sách mà mình thích"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../public/img/logo/logo.jpg" />
+
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
     />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/FontAwesome.otf"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css.map"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="../../css/register.css">
     <script>
       if (document.location.search.match(/type=embed/gi)) {
         window.parent.postMessage("resize", "*");
@@ -43,56 +35,78 @@
 
   <body>
     <div id="AppendHere"></div>
-        <div class="form-section">
-
-          <div class="form">
-              <h1>Đăng kí</h1>
-              <p><a href="#" target="_blank"> www.ULibs.com</a></p>
-  
-  
-              <div class="input-info">
-
-                  <div class="username-section">
-                    <i class="fa fa-user" style="margin-left: 24px"></i>
-                    <input type="text" name="username" id="username" placeholder="Tên đăng nhập" />
-                    <span class="description">Tài khoản từ 8 đến 16 kí tự, không được chứa kí tự đặc biệt</span>
-                  </div>
-                  <div class="email-section">
-                  <i class="fa fa-envelope" style="margin-left: 24px"></i>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        required=""
-                        autocomplete="off"
-                        validate=""
-                        name="email"
-                        id="email"
-                    />
-                  </div>
-                  <input type="text" name="displayName" id="displayName" placeholder="Nhập tên hiển thị" />
-                  <i class="fa fa-lock" style="margin-left: 24px"></i>
-  
-                  <input type="password" name="password" id="password" placeholder="Mật khẩu" />
-  
-                  <input type="password" name="re-password" id="re-password" placeholder="Nhập lại mật khẩu" />
+    <div class="form-section">
+      <div class="row" style="height: -webkit-fill-available;">
+        <div class="col-xs-12">
+          <div class="login-form">
+            <div class="section">
+              <div class="section-header">
+                <div class="logo">
+                  <img src="../../img/logo/logo-removebg-preview.png" alt="" class="logo-img">
+                </div>
+                <div class="login-title">
+                  <h5>Đăng kí thành viên</h5>
+                </div>
               </div>
-              <div class="alert">Tài khoản đã có người sử dụng . Vui lòng thử lại</div>
-              <div class="log-sign">
-  
-                  <a href="/login">
-                    <button class="login">
-                    <i class="fa fa-mail-forward (alias)"></i> Log In
-                    </button>                  
-                  </a>
-  
-                  <a href="#">                <!--the link to the sign up page-->
-                  <button class="signup">
-                      <i class="fa fa-plus"></i> Đăng kí
+              <div class="text-field-form">
+                <div class="row">
+                  <div class="material-textfield col-sm-6">
+                    <input placeholder=" " type="text" id="username" name="username">
+                    <label>Tên đăng nhập</label>
+                  </div>
+                  <div class="material-textfield col-sm-6">
+                    <input placeholder=" " type="email" id="email" name="email">
+                    <label>Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="material-textfield col-sm-6">
+                    <input placeholder=" " type="password" id="password" name="password">
+                    <label>Mật khẩu</label>
+                  </div>
+                  <div class="material-textfield col-sm-6">
+                    <input placeholder=" " type="password" id="re-password" name="re-password">
+                    <label>Nhập lại mật khẩu</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="material-textfield col-sm-6">
+                    <input placeholder=" " type="text" id="displayName" name="displayName">
+                    <label>Nhập tên hiển thị</label>
+                  </div>
+
+                </div>
+              </div>
+              <div class="submit-section">
+                  <button class="mobile-button mobile-button__submit" title="Đăng nhập" onclick="login()">
+                    <i class="fa-solid fa-arrow-right"></i>
                   </button>
-                  </a>
               </div>
+              <div style="margin-top: 16px;">
+                <div style="width: 100%; height: 12px; border-bottom: 1px solid #ccc; text-align: center">
+                  <span style="font-size: 16px; background-color: #fff; padding: 0 10px;">
+                    Hoặc 
+                  </span>
+                </div>
+              </div>
+              <div class="login-option">
+                <div class="option">
+                  <div class="to-register">
+                    <a href="./login">Đã có tài khoản</a>
+                  </div>
+                </div>
+                <div class="option">
+                  <div class="to-forgot-password">
+                    <a href="./forgetPassword">Không thể đăng nhập ?</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+      </div>
+    </div> 
       
     <!--End Register form-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

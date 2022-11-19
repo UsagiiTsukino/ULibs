@@ -1,83 +1,153 @@
-            <div class="banner-header">
-              <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-10-2022/Payday_Main Banner_Header_1263x60.jpg" alt="">
-            </div>
-            <div class="navigation d-flex">
-                <a href="/" class="logo">
-                  <img src="../../img/logo/logo.jpg" alt="" class="img-logo">
-                </a>
-                
-                <div class="middle-header">
-                  <form action="/books/search" method="GET">
-                    <div class="search-form">
-                        <input id="search" class="search-input" type="text" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn ..." placeholder="Search" aria-label="Search" name="tag">
-                        <button class="btn-search" type="submit">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <text>Tìm Kiếm</text>
-                        </button>
-                      </form>  
+            {{!-- <div>
+              <div class="banner-header">
+                <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-10-2022/Payday_Main Banner_Header_1263x60.jpg" alt="">
+              </div>
+              <div class="navigation d-flex">
+                  <a href="/" class="logo">
+                    <img src="../../img/logo/logo.jpg" alt="" class="img-logo">
+                  </a>
+                  
+                  <div class="middle-header">
+                    <form action="/books/search" method="GET">
+                      <div class="search-form">
+                          <input id="search" class="search-input" type="text" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn ..." placeholder="Search" aria-label="Search" name="tag">
+                          <button class="btn-search" type="submit">
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                              <text>Tìm Kiếm</text>
+                          </button>
+                        </form>  
+                        </div>
+                      <div class="book-recommended">
+                          <span class="book-recommended title">Phổ biến : </span>
+                          <ul class="list-recommended">
+                              <li><a href="/books/ngung-bat-nat/show">ngưng bắt nạt</a></li>
+                              <li><a href="/books/yeu-tham/show">yêu thầm</a></li>
+                              <li><a href="/books/khi-chat-bao-nhieu-hanh-phuc-bay-nhieu/show">khí chất bao nhiêu hạnh phúc bấy nhiêu</a></li>
+                              <li><a href="/books/cay-cam-ngot-cua-toi/show">cây cam ngọt cảu tôi</a></li>
+                              <li><a href="/books/thien-tai-ben-trai-ke-dien-ben-phai-tai-ban/show">thiên tài bên trái kẻ điên bên phải</a></li>
+                          </ul>
                       </div>
-                    <div class="book-recommended">
-                        <span class="book-recommended title">Phổ biến : </span>
-                        <ul class="list-recommended">
-                            <li><a href="/books/ngung-bat-nat/show">ngưng bắt nạt</a></li>
-                            <li><a href="/books/yeu-tham/show">yêu thầm</a></li>
-                            <li><a href="/books/khi-chat-bao-nhieu-hanh-phuc-bay-nhieu/show">khí chất bao nhiêu hạnh phúc bấy nhiêu</a></li>
-                            <li><a href="/books/cay-cam-ngot-cua-toi/show">cây cam ngọt cảu tôi</a></li>
-                            <li><a href="/books/thien-tai-ben-trai-ke-dien-ben-phai-tai-ban/show">thiên tài bên trái kẻ điên bên phải</a></li>
-                        </ul>
-                    </div>
-                </div>
-                  <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                      <li class="nav-item dropdown">
-                        
-                        <a class="nav-link dropdown-toggle text-white user-text user-text-header" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa-solid fa-user"></i>
-                          <text>
-                            Bạn chưa đăng nhập
-                          </text>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <div class="dropdown-item infomation-account__navbar">
-                            <div class="row">
-                              <div class="account-avatar_header col">
-                                  <img src="https://i.pinimg.com/564x/fa/e7/6b/fae76b4580874fbbe7d7a9931e63ceae.jpg" alt="">
-                              </div>
-                              <div class="title_header col">
-                                <div class="hello-title">Xin chào</div>
-                                <p class="display-name_header">Bạn chưa đăng nhập</p>
-                                <div class="role_header">
-                                  <span>Bạn là :</span>
-                                  <span class="role-member">Thành viên</span>
+                  </div>
+                    <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+                      <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                          
+                          <a class="nav-link dropdown-toggle text-white user-text user-text-header" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-solid fa-user"></i>
+                            <text>
+                              Bạn chưa đăng nhập
+                            </text>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-item infomation-account__navbar">
+                              <div class="row">
+                                <div class="account-avatar_header col">
+                                    <img src="https://i.pinimg.com/564x/fa/e7/6b/fae76b4580874fbbe7d7a9931e63ceae.jpg" alt="">
+                                </div>
+                                <div class="title_header col">
+                                  <div class="hello-title">Xin chào</div>
+                                  <p class="display-name_header">Bạn chưa đăng nhập</p>
+                                  <div class="role_header">
+                                    <span>Bạn là :</span>
+                                    <span class="role-member">Thành viên</span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
+                            <a class="dropdown-item" href="/me/">
+                            <img src="../../img/logo/user.png" alt="" class="icon_header">
+                            Hồ sơ của tôi</a>
+                            <a class="dropdown-item" href="/me/privacy">
+                            <img src="../../img/logo/privacy.png" alt="" class="icon_header">
+                            Cài đặt riêng tư</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/books/create">
+                            <img src="../../img/logo/page.png" alt="" class="icon_header">
+                            Đăng bán sách</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/login">
+                            <img src="../../img/logo/logout.png" alt="" class="icon_header">
+                            Đăng xuất</a>
                           </div>
-                          <a class="dropdown-item" href="/me/">
-                          <img src="../../img/logo/user.png" alt="" class="icon_header">
-                          Hồ sơ của tôi</a>
-                          <a class="dropdown-item" href="/me/privacy">
-                          <img src="../../img/logo/privacy.png" alt="" class="icon_header">
-                          Cài đặt riêng tư</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="/books/create">
-                          <img src="../../img/logo/page.png" alt="" class="icon_header">
-                          Đăng bán sách</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="/login">
-                          <img src="../../img/logo/logout.png" alt="" class="icon_header">
-                          Đăng xuất</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="add-cart text-white">
+                          <a href="/me/checkout">
+                            <i class="fa-solid fa-cart-shopping">
+                                <span class="badge bg-danger badge-alert">0</span>
+                            </i>
+                          </a>
+                    </div>
+            </div> --}}
+            <div>
+              <div class="navigation d-flex navbar-responsive">
+                  <a href="/" class="logo">
+                    <img src="../../img/logo/logo.jpg" alt="" class="img-logo">
+                  </a>
+                  
+                  <div class="middle-header">
+                    <form action="/books/search" method="GET">
+                      <div class="search-form">
+                          <input id="search" class="search-input" type="text" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn ..." placeholder="Search" aria-label="Search" name="tag">
+                          <button class="btn-search" type="submit">
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                              <text>Tìm Kiếm</text>
+                          </button>
+                        </form>  
                         </div>
-                      </li>
-                    </ul>
                   </div>
-                  <div class="add-cart text-white">
-                        <a href="/me/checkout">
-                          <i class="fa-solid fa-cart-shopping">
-                              <span class="badge bg-danger badge-alert">0</span>
-                          </i>
-                        </a>
-                  </div>
+                    <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+                      <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                          
+                          <a class="nav-link dropdown-toggle text-white user-text user-text-header" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-solid fa-user"></i>
+                            <text>
+                              Bạn chưa đăng nhập
+                            </text>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-item infomation-account__navbar">
+                              <div class="row">
+                                <div class="account-avatar_header col">
+                                    <img src="https://i.pinimg.com/564x/fa/e7/6b/fae76b4580874fbbe7d7a9931e63ceae.jpg" alt="">
+                                </div>
+                                <div class="title_header col">
+                                  <div class="hello-title">Xin chào</div>
+                                  <p class="display-name_header">Bạn chưa đăng nhập</p>
+                                  <div class="role_header">
+                                    <span>Bạn là :</span>
+                                    <span class="role-member">Thành viên</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <a class="dropdown-item" href="/me/">
+                            <img src="../../img/logo/user.png" alt="" class="icon_header">
+                            Hồ sơ của tôi</a>
+                            <a class="dropdown-item" href="/me/privacy">
+                            <img src="../../img/logo/privacy.png" alt="" class="icon_header">
+                            Cài đặt riêng tư</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/books/create">
+                            <img src="../../img/logo/page.png" alt="" class="icon_header">
+                            Đăng bán sách</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/login">
+                            <img src="../../img/logo/logout.png" alt="" class="icon_header">
+                            Đăng xuất</a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="add-cart text-white">
+                          <a href="/me/checkout">
+                            <i class="fa-solid fa-cart-shopping">
+                                <span class="badge bg-danger badge-alert">0</span>
+                            </i>
+                          </a>
+                    </div>
             </div>
     <script src="../../script/fetchUserData.js"></script>
     <script src="../../script/assignUserData.js"></script>

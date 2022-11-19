@@ -163,6 +163,8 @@
                             <div class="form-control-cus">
                                 <label class="label-input"></label>
                                 <button type="none"class="btn-submit" onclick="update()">Lưu thay đổi</button>
+                                <span class="updating-status">
+                                </span>
                             </div>
                     </div>
                 </div>
@@ -243,20 +245,22 @@
 </div>
 <div id="toast"></div>
 <script>
+    var avatar;
     document.querySelector(".upload-avatar-btn").addEventListener("click", function() {
         document.querySelector("#actual-upload").click();
     });
 
     function readURL(input) {
-        console.log(1)
+        
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
                 $('#avatar-img')
                     .attr('src', e.target.result);
-            };
 
+            };
+            avatar = input.files[0]
             reader.readAsDataURL(input.files[0]);
         }
     }
@@ -317,31 +321,46 @@
         }
     }
     function update() {
-        $.ajax({  
-          url: '/me',
-          type: 'POST',
-          data: {
-            displayName : $('#displayName').val(),
-            dob : $('#datepicker').val(),
-            gender : $('input[name="gender"]:checked').val(), 
-            address : $('input[name="address"]').val(),
-            id : $('#id').val(),
-          }
-        })
-          .then(data => {
-            if (data.success) {
-                toast({
-                    title: "Thành công!",
-                    message: "Thông tin của bạn đã được chỉnh sửa thành công",
-                    type: "success",
-                    duration: 50000
-                })
+
+        const uploadData = new FormData();
+
+        uploadData.append("displayName",  $('#displayName').val());
+        uploadData.append("dob",  $('#datepicker').val());
+        uploadData.append("gender", $('input[name="gender"]:checked').val());
+        uploadData.append("address",  $('input[name="address"]').val());
+        uploadData.append("id",  $('#id').val());
+        uploadData.append("avatar_img", avatar);
+
+        $('.updating-status').html('<img src="../../img/logo/loading-sm.gif" alt="" width="100%">');
+
+            $.ajax({  
+                url: '/me',
+                type: 'POST',
+                contentType: false, 
+                processData: false,
+                data: uploadData
+            })
+            .then(data => {
+                if (data.success) {
+
+                    $('.updating-status').html('<img src="../../img/logo/green-tick.gif" alt="" width="100%">');
+                    setTimeout(
+                        () => {
+                            $('.updating-status').html('');
+                        }, 2500
+                    )
+                    toast({
+                        title: "Thành công!",
+                        message: "Thông tin của bạn đã được chỉnh sửa thành công",
+                        type: "success",
+                        duration: 50000
+                    })
+                }
+            else {
+                $('.alert').css('display', 'block');
             }
-          else {
-            $('.alert').css('display', 'block');
-          }
-      })
-          .catch(err => console.log(err));
+        })
+            .catch(err => console.log(err));
       }
 </script>
 <script src="../../script/cart-to-payment-handler.js"></script>

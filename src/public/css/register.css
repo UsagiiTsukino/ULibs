@@ -1,0 +1,14 @@
+.login-form{
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+.login-title {
+    width: auto;
+}
+.material-textfield {
+    margin: 0;
+    margin-top: 16px;
+}
+.text-field-form input {
+    width: 90%;
+}
