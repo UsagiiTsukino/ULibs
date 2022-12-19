@@ -29,7 +29,7 @@
             </div>
                 `
         }
-            document.getElementById('quatity-total-payment').innerHTML = `${cartItem.length} sản phẩm`
+            document.getElementById('quatity-total-payment').innerHTML = `${cartItem.length || 0} sản phẩm`
             document.getElementById('temp-total--payment').innerHTML = `${formatPrice(totalPrice.toString())} đ`
             document.querySelector('.order-total__total').innerText = `${formatPrice((totalPrice - 7000).toString())} đ`
     })

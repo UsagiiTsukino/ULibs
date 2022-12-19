@@ -1,3 +1,9 @@
+/* Book posting form */
+
+.book-posting{
+    padding-bottom: 16px;
+}
+
 .card-preview{
     box-shadow: rgb(0 0 0 / 30%) 0px 0px 20px;
 }

@@ -152,9 +152,23 @@
 <div class="product-infomation">
     <div class="col-xxl-8 col-md-12 col-sm-12">
         <p class="title">Mô tả sản phẩm</p>
-        <p class="content">
-            {{book.description}}
+        <p class="content desc">
+                {{book.description}}
         </p>
+    </div>
+</div>
+<div class="separator-horizontal" style="height: 16px; background-color: rgb(245,245,250);"></div>
+<div class="product-infomation comment-section">
+    <div class="col-xxl-8 col-md-12 col-sm-12">
+        <p class="title">Bình luận</p>
+        <p class="content">
+            <textarea name="editor" id="editor" class="comment-editor"></textarea>
+        </p>
+        <div class="d-flex justify-content-end">
+            <div class="red_button submit_comment">
+                <a href="#">Gửi</a>
+            </div>
+        </div>
     </div>
 </div>
 <div id="toast"></div>
@@ -253,4 +267,8 @@
             }, 5000);
         }
     }
+</script>
+<script>
+    var content = $('.product-infomation .desc').text();
+    $('.product-infomation desc').html(content)
 </script>

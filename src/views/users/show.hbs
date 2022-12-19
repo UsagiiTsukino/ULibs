@@ -80,7 +80,7 @@
                 <div class="col-xxl-7 user-form">
                     <p class="title">Thông tin cá nhân</p>
                     <div>
-                        <form action="">
+                        <form action="" name="user-infomation">
                             <div class="form-info">
                                 <div class="form-avatar">
                                     <div class="avatar">
@@ -153,16 +153,61 @@
                             <div class="form-control-cus">
                                 <label class="label-input">Địa chỉ giao hàng</label>
                                 <div>
-                                    <div class="text-input">
-                                        <input class="input with-icon-right" name="address" maxlength="128" id="address"
-                                            placeholder="Nhập địa chỉ giao hàng" value="{{user.address}}">
+                                    <div class="user-address">
+                                        <div class="text-input">
+                                                <input class="input " name="address" maxlength="128"
+                                                    placeholder="Bạn chưa cập nhật thông tin địa chỉ" type="search" value="{{user.address}}" id="address" disabled>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="status">
+                                                <button type="none" class="button active draw-border edit-address-btn update-event-js"> Cập nhật</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-input edit-address-form">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <select name="" id="province" class="form-select">
+                                                    <option  value="">Chọn Tỉnh</option>
+                                                </select>                                                
+                                            </div>
+                                            <div class="col-6">
+                                                <select name="" id="district" class="form-select">
+                                                    <option  value="">Chọn Quận / Thành phố</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <select name="" id="ward" class="form-select">
+                                                    <option   value="">Chọn Phường / Xã</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="text-input">
+                                            <input class="input " type="search" name="no-Address" maxlength="128"
+                                                placeholder="Nhập số nhà ... " value="" id="no-Address">
+                                        </div>
+                                        <div class="group-btn-edit-address">
+                                            <div class="cancel-btn edit-address-user">
+                                                <div class="status">
+                                                    <button type="button" class="btn btn-outline-danger edit-address-btn cancel-event-js">Hủy bỏ</button>
+                                                 </div>
+
+                                            </div>
+                                            <div class="submit-btn edit-address-user">
+                                                <div class="status">
+                                                    <button type="button" class="btn btn-outline-success edit-address-btn submit-change-event-js">Thay đổi</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
                             <div class="form-control-cus">
                                 <label class="label-input"></label>
-                                <button type="none"class="btn-submit" onclick="update()">Lưu thay đổi</button>
+                                <button type="none"class="btn-submit" >Lưu thay đổi</button>
                                 <span class="updating-status">
                                 </span>
                             </div>
@@ -245,6 +290,59 @@
 </div>
 <div id="toast"></div>
 <script>
+
+</script>
+<script>
+    document.title = `Thông tin cá nhân - ULibs`
+    
+    var gender = $('#gender-js').attr('data');
+    $(`input[value=${gender}]`).prop('checked', true);
+    
+
+    $('.btn-submit').click(() => update());
+
+    $('.edit-address-btn').click((e) => {     
+        $('form[name="user-infomation"]').submit((e) =>{
+            return false;
+        })
+    });
+
+    function getDistrict() {
+        if ($("#district").val() != "" && $("#province").val() != "" &&
+            $("#ward").val() != "" && $("#no-Address").val() != "") {
+            let result = $("#no-Address").val() +  ', ' + $("#ward option:selected").text() + ', ' +
+                $("#district option:selected").text()  + ', ' + $("#province option:selected").text()
+            return result;
+        }
+        return null;
+    }
+    function updateAddress() {
+        $('.update-event-js').click((e) => {
+            $('.user-address').css('display', 'none')
+            $('.edit-address-form').css('display', 'block')
+        })
+
+    }
+    function cancelEditUserInfo() {
+        $('.cancel-event-js').click(() =>{
+            $('.edit-address-form').css('display', 'none')
+            $('.user-address').css('display', 'flex') 
+        })
+    }
+    function submitUpdateAddress() {
+        $('.submit-change-event-js').click(() => {
+            $('input[name="address"]').val(`${getDistrict()}`)
+            $('.edit-address-form').css('display', 'none')
+            $('.user-address').css('display', 'flex') 
+        })
+    }
+
+    updateAddress()
+    submitUpdateAddress()
+    cancelEditUserInfo()
+
+</script>
+<script>
     var avatar;
     document.querySelector(".upload-avatar-btn").addEventListener("click", function() {
         document.querySelector("#actual-upload").click();
@@ -267,9 +365,7 @@
     
 </script>
 <script>
-    document.title = `Thông tin cá nhân - ULibs`
-    var gender = $('#gender-js').attr('data');
-    $(`input[value=${gender}]`).prop('checked', true);
+
     function toast({ title = "", message = "", type = "info", duration = 3000 }) {
         const main = document.getElementById("toast");
         if (main) {
@@ -320,9 +416,11 @@
             }, 5000);
         }
     }
+
+
     function update() {
 
-        const uploadData = new FormData();
+       const uploadData = new FormData();
 
         uploadData.append("displayName",  $('#displayName').val());
         uploadData.append("dob",  $('#datepicker').val());
@@ -363,4 +461,3 @@
             .catch(err => console.log(err));
       }
 </script>
-<script src="../../script/cart-to-payment-handler.js"></script>
