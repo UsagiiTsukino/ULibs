@@ -7,6 +7,7 @@ const User = require('../app/models/User');
 
 router.get('/checkout', meController.cart)
 router.get('/checkout/payment', meController.payment)
+router.get('/checkout/success', meController.payment_success)
 router.get('/', meController.show)
 router.post('/',fileUploader.single('avatar_img'),(req, res, next) =>{
 

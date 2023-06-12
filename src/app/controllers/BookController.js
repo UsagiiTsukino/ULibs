@@ -18,7 +18,16 @@ class BookController {
         })
         .catch(next)
     }
-
+    // [GET] /admin/products
+    showAll(req, res, next) {
+        books.find()
+        .then(books =>  {
+            return res.json({
+                "success" : true,
+                "books" : books,
+            });
+        })
+    }
     // [GET] /books/search
     search(req, res, next) {
         books.findOne({

@@ -22,21 +22,27 @@ const enforce = require('express-sslify');
 const req = require('express/lib/request');
 const users = require('./app/models/User');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 };
-function checkHttps(req, res, next){
-  // protocol check, if http, redirect to https
+// function checkHttps(req, res, next){
+//   // protocol check, if http, redirect to https
   
-  if(req.get('X-Forwarded-Proto').indexOf("https")!=-1){
-    return next()
-  } else {
-    res.redirect('https://' + req.hostname + req.url);
-  }
-}
+//   if(req.get('X-Forwarded-Proto').indexOf("https")!=-1){
+//     return next()
+//   } else {
+//     res.redirect('https://' + req.hostname + req.url);
+//   }
+// }
 
-app.all('*', checkHttps);
+// app.all('*', checkHttps);
+
+var corsOptions = {
+  origin : true,
+}
+app.use(cors(corsOptions))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
@@ -87,7 +93,7 @@ app.use(passport.session())
 passport.use(new FacebookStrategy({
     clientID: '378641464423407',
     clientSecret: '81259984488044e2aeb14dee8f5a4015',
-    callbackURL: `https://ulibs.glitch.me/auth/facebook/callback`,
+    callbackURL: `https://localhost:3000/auth/facebook/callback`,
     profileFields: ['id', 'displayName','photos','email'],
   },
   function(accessToken, refreshToken, profile, cb) {

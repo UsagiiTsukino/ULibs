@@ -1,6 +1,5 @@
 const booksRouter = require('./books');
-const usersRouter = require('./users');
-// const newsRouter = require('./news');
+
 const siteRouter = require('./site');
 const meRouter = require('./me');
 const loginRouter = require('./login');
@@ -8,6 +7,7 @@ const forgotPasswordRouter = require('./forgotPassword');
 const siteController = require('../app/controllers/SiteController');
 const LoginController = require('../app/controllers/LoginController.js');
 const registerRouter = require('./register');
+const adminRouter = require('./admin');
 const passport = require('passport');
 const { urlencoded } = require('body-parser');
 const req = require('express/lib/request');
@@ -54,12 +54,17 @@ function route(app) {
         (err, user) => {
           if(!user){
             const userData = new users(user);
-                  let id = userData._id;
-                  userData.ID = profile.id;
-                  userData.username = profile.id,
-                  userData.displayName = profile.displayName,
-                  userData.email = profile.emails[0].value,
+                  let id = userData._id
+                  userData.ID = profile.id
+                  userData.username = profile.id
+                  userData.displayName = profile.displayName
+                  userData.email = profile.emails[0].value
                   userData.avatar_img = profile.photos[0].value
+                  userData.phoneNumber = `Bạn chưa liên kết số điện thoại`
+                  userData.role = `member`
+                  userData.address = `Chưa cập nhật`
+                  userData.dob =`Chưa cập nhật`
+                  userData.gender = `Chưa cập nhật`
                   userData.save()
                           .then((err, result) => {
                              return;
@@ -83,12 +88,12 @@ function route(app) {
     });
 
     app.use('/books', LoginController.checkAuth, booksRouter)
-    app.use('/users', LoginController.checkAuth, usersRouter)
     app.use('/login', loginRouter);
     app.use('/register', registerRouter);
     app.use('/forgetPassword', forgotPasswordRouter);
     app.use('/', LoginController.checkAuth, siteRouter);
     app.use('/me', LoginController.checkAuth, meRouter);
+    app.use('/admin', LoginController.checkAuth, adminRouter);
 
     app.get('/api/users', (req, res, next) => {
       if(req.user) res.json(

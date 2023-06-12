@@ -8,10 +8,19 @@
       name="description"
       content="Đăng kí và trở thành thành viên của ULibs - Thư viện số để tìm kiếm và mua những cuốn sách mà mình thích"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="icon" href="../public/img/logo/logo.jpg" />
 
     <link
@@ -21,11 +30,11 @@
       crossorigin="anonymous"
     />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <link rel="stylesheet" href="../../css/login.css">
-    <link rel="stylesheet" href="../../css/register.css">
+    <link rel="stylesheet" href="../../css/login.css" />
+    <link rel="stylesheet" href="../../css/register.css" />
     <script>
       if (document.location.search.match(/type=embed/gi)) {
         window.parent.postMessage("resize", "*");
@@ -36,13 +45,17 @@
   <body>
     <div id="AppendHere"></div>
     <div class="form-section">
-      <div class="row" style="height: -webkit-fill-available;">
+      <div class="row" style="height: -webkit-fill-available">
         <div class="col-xs-12">
           <div class="login-form">
             <div class="section">
               <div class="section-header">
                 <div class="logo">
-                  <img src="../../img/logo/logo-removebg-preview.png" alt="" class="logo-img">
+                  <img
+                    src="../../img/logo/logo-removebg-preview.png"
+                    alt=""
+                    class="logo-img"
+                  />
                 </div>
                 <div class="login-title">
                   <h5>Đăng kí thành viên</h5>
@@ -51,41 +64,85 @@
               <div class="text-field-form">
                 <div class="row">
                   <div class="material-textfield col-sm-6">
-                    <input placeholder=" " type="text" id="username" name="username">
+                    <input
+                      placeholder=" "
+                      type="text"
+                      id="username"
+                      name="username"
+                    />
                     <label>Tên đăng nhập</label>
                   </div>
                   <div class="material-textfield col-sm-6">
-                    <input placeholder=" " type="email" id="email" name="email">
+                    <input
+                      placeholder=" "
+                      type="email"
+                      id="email"
+                      name="email"
+                    />
                     <label>Email</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="material-textfield col-sm-6">
-                    <input placeholder=" " type="password" id="password" name="password">
+                    <input
+                      placeholder=" "
+                      type="password"
+                      id="password"
+                      name="password"
+                    />
                     <label>Mật khẩu</label>
                   </div>
                   <div class="material-textfield col-sm-6">
-                    <input placeholder=" " type="password" id="re-password" name="re-password">
+                    <input
+                      placeholder=" "
+                      type="password"
+                      id="re-password"
+                      name="re-password"
+                    />
                     <label>Nhập lại mật khẩu</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="material-textfield col-sm-6">
-                    <input placeholder=" " type="text" id="displayName" name="displayName">
+                    <input
+                      placeholder=" "
+                      type="text"
+                      id="displayName"
+                      name="displayName"
+                    />
                     <label>Nhập tên hiển thị</label>
                   </div>
-
+                </div>
+                <div class="alert">
+                  Tài khoản hoặc mật khẩu sai. Vui lòng thử lại
                 </div>
               </div>
               <div class="submit-section">
-                  <button class="mobile-button mobile-button__submit" title="Đăng nhập" onclick="login()">
-                    <i class="fa-solid fa-arrow-right"></i>
-                  </button>
+                <button
+                  class="mobile-button mobile-button__submit"
+                  title="Đăng kí"
+                  onclick="Register()"
+                >
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <div style="margin-top: 16px;">
-                <div style="width: 100%; height: 12px; border-bottom: 1px solid #ccc; text-align: center">
-                  <span style="font-size: 16px; background-color: #fff; padding: 0 10px;">
-                    Hoặc 
+              <div style="margin-top: 16px">
+                <div
+                  style="
+                    width: 100%;
+                    height: 12px;
+                    border-bottom: 1px solid #ccc;
+                    text-align: center;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: 16px;
+                      background-color: #fff;
+                      padding: 0 10px;
+                    "
+                  >
+                    Hoặc
                   </span>
                 </div>
               </div>
@@ -102,107 +159,108 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
-    </div> 
-      
+    </div>
+
     <!--End Register form-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script id="rendered-js">
-        //this function to applay your animate style
-        function animate_Me(target, moveMe) {
-          $(target).focus(function () {
-            $(moveMe).animate({ marginLeft: "266px" });
-          });
-          $(target).focusout(function () {
-            $(moveMe).animate({ marginLeft: "24px" });
-          });
-        }
-        //--------------------
+      //this function to applay your animate style
+      function animate_Me(target, moveMe) {
+        $(target).focus(function () {
+          $(moveMe).animate({ marginLeft: "266px" });
+        });
+        $(target).focusout(function () {
+          $(moveMe).animate({ marginLeft: "24px" });
+        });
+      }
+      //--------------------
 
-        animate_Me("input[type='text']", ".fa-user");
-        animate_Me("input[placeholder='Your Last Name']", ".fa-user-plus");
-        animate_Me("input[type='email']", ".fa-envelope");
-        animate_Me("input[type='password']", ".fa-lock");
-        animate_Me("input[placeholder='Confirm Password']", ".fa-refresh");
+      animate_Me("input[type='text']", ".fa-user");
+      animate_Me("input[placeholder='Your Last Name']", ".fa-user-plus");
+      animate_Me("input[type='email']", ".fa-envelope");
+      animate_Me("input[type='password']", ".fa-lock");
+      animate_Me("input[placeholder='Confirm Password']", ".fa-refresh");
     </script>
 
     <script>
-        function setCookie(cname, cvalue, exdays) {
-            const d = new Date();
-            d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            let expires = "expires="+ d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
 
-        function getCookie(cname) {
-              let name = cname + "=";
-              let decodedCookie = decodeURIComponent(document.cookie);
-              let ca = decodedCookie.split(';');
-              for(let i = 0; i <ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                  c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                  return c.substring(name.length, c.length);
-                }
-              }
-            return "";
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
           }
-        function isUserNameValid(username) {
-          /* 
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      function isUserNameValid(username) {
+        /* 
             Usernames can only have: 
             - Lowercase Letters (a-z) 
             - Numbers (0-9)
             - Dots (.)
             - Underscores (_)
           */
-          const res = /^[a-z0-9_\.]+$/.exec(username);
-          const valid = !!res && username.length >= 8;
-          return valid;
-        }
-        function Register() {
-        $.ajax({  
-          url: '/register',
-          type: 'POST',
+        const res = /^[a-z0-9_\.]+$/.exec(username);
+        const valid = !!res && username.length >= 8;
+        return valid;
+      }
+      function Register() {
+        $.ajax({
+          url: "/register",
+          type: "POST",
           data: {
-            username : $('#username').val(),
-            displayName : $('#displayName').val(),
-            email : $('#email').val(),
-            password : $('#password').val(), 
-          }
+            username: $("#username").val(),
+            displayName: $("#displayName").val(),
+            email: $("#email").val(),
+            password: $("#password").val(),
+          },
         })
-          .then(data => {
-            if (data == 'user got duplicated') {
-              $('.alert').css('display', 'block').text('Tài khoản hoặc email đã có người sử dụng');
+          .then((data) => {
+            if (data == "user got duplicated") {
+              $(".alert")
+                .css("visibility", "visible")
+                .text("Tài khoản hoặc email đã có người sử dụng");
+            } else if (data != "that bai") {
+              $(".alert")
+                .css({
+                  visibility: "visible",
+                  color: "#01fb01",
+                })
+                .text("Đăng kí thành công");
+            } else {
+              $(".alert").css("visibility", "visible");
             }
-            else if (data != 'that bai') {
-              $('.alert').css({
-                display: 'block',
-                color : '#01fb01',
-              }).text('Đăng kí thành công');
-            }
-            else {
-              $('.alert').css('display', 'block');
-            }
-      })
-          .catch(err => {
-           console.log(err);
+          })
+          .catch((err) => {
+            console.log(err);
           });
       }
 
-      $('.signup').on('click', () => {
-        if ($('input#password').val() === $('input#re-password').val()){
+      $(".signup").on("click", () => {
+        if ($("input#password").val() === $("input#re-password").val()) {
           Register();
+        } else {
+          $(".alert")
+            .text("Nhập lại mật khẩu không đúng. Vui lòng thử lại")
+            .css("display", "block");
         }
-        else {
-          $('.alert').text('Nhập lại mật khẩu không đúng. Vui lòng thử lại').css('display', 'block');
-        }
-      })
-
+      });
     </script>
   </body>
 </html>

@@ -57,7 +57,25 @@ class MeController {
         res.render('cart')
     }
     payment (req, res, next){
-        res.render('payment')
+
+        try {
+            var token = req.cookies.token;
+            var result = jwt.verify(token, 'mk')
+            if(result) {
+                User.findOne({_id: result._id})
+                    .then(user => {
+                        res.render('payment', {
+                            user: mongooseToObject(user)
+                        })
+                    })
+                    .catch(err => console.log(err))
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    payment_success (req, res, next) {
+        res.render('payment_success')
     }
 }
 

@@ -296,9 +296,9 @@
     document.title = `Thông tin cá nhân - ULibs`
     
     var gender = $('#gender-js').attr('data');
-    $(`input[value=${gender}]`).prop('checked', true);
-    
-
+    if (gender!='Chưa cập nhật'){
+        $(`input[value=${gender}]`).prop('checked', true);
+    }
     $('.btn-submit').click(() => update());
 
     $('.edit-address-btn').click((e) => {     
@@ -412,7 +412,6 @@
             setTimeout(function () {    
                 toast.classList.remove("animate__fadeInRight");
                 toast.classList.add("animate__bounceOutRight");
-                //main.removeChild(toast); 
             }, 5000);
         }
     }
